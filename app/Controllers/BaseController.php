@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Helpers\LanguageHelper;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
@@ -51,6 +52,12 @@ abstract class BaseController extends Controller
      */
     protected function initializeLanguage(): void
     {
+        $redirectUrl = LanguageHelper::getAutoRedirectUrl();
+        if ($redirectUrl !== null) {
+            $this->response->redirect($redirectUrl)->send();
+            exit;
+        }
+
         $currentLang = currentLang();
         service('language')->setLocale($currentLang);
     }

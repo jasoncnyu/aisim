@@ -21,7 +21,7 @@
             <!-- Dropdown Menu -->
             <div class="absolute right-0 mt-2 w-48 bg-white border border-slate-200 rounded-lg shadow-lg invisible group-hover:visible z-50">
                 <?php foreach (getSupportedLanguages() as $code => $name): ?>
-                    <a href="?lang=<?= $code ?>" class="block px-4 py-2 text-sm hover:bg-slate-100 <?= currentLang() === $code ? 'bg-slate-50 font-semibold' : '' ?> <?= $code === 'ar' ? 'text-right' : '' ?>">
+                    <a href="<?= esc(langUrl($code)) ?>" class="block px-4 py-2 text-sm hover:bg-slate-100 <?= currentLang() === $code ? 'bg-slate-50 font-semibold' : '' ?> <?= $code === 'ar' ? 'text-right' : '' ?>">
                         <?= getLanguageName($code, true) ?>
                     </a>
                 <?php endforeach; ?>
@@ -29,4 +29,3 @@
         </div>
     </div>
 </header>
-

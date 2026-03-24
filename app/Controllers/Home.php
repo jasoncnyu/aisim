@@ -139,7 +139,7 @@ class Home extends BaseController
         ]);
     }
 
-    private function renderPage(string $view, string $pageTitle, string $activeMenu, array $meta = []): string
+    protected function renderPage(string $view, string $pageTitle, string $activeMenu, array $meta = []): string
     {
         return view($view, [
             'pageTitle'      => $pageTitle,

@@ -23,16 +23,31 @@ class LanguageHelper
         }
 
         $config = self::getConfig();
+        $request = service('request');
         $session = session();
-        
-        // Check session first
+
+        // Check locale from URL path prefix (e.g., /de/, /es/)
+        $path = $request->getUri()->getPath();
+        $segments = array_values(array_filter(explode('/', trim($path, '/')), 'strlen'));
+        if ($segments !== [] && self::isValidLanguage($segments[0]) && $segments[0] !== 'en') {
+            self::setLanguage($segments[0], true);
+            return self::$currentLanguage;
+        }
+
+        // Check URL parameter
+        $language = $request->getGet('lang');
+        if ($language && self::isValidLanguage($language)) {
+            self::setLanguage($language, true);
+            return self::$currentLanguage;
+        }
+
+        // Check session (explicit user selection)
         if ($session->has($config->sessionKey)) {
             self::$currentLanguage = $session->get($config->sessionKey);
             return self::$currentLanguage;
         }
 
-        // Check cookie
-        $request = service('request');
+        // Check cookie (explicit user selection)
         $cookie = $request->getCookie($config->cookieName);
         if ($cookie && self::isValidLanguage($cookie)) {
             self::$currentLanguage = $cookie;
@@ -40,18 +55,11 @@ class LanguageHelper
             return self::$currentLanguage;
         }
 
-        // Check URL parameter
-        $language = $request->getGet('lang');
-        if ($language && self::isValidLanguage($language)) {
-            self::setLanguage($language);
-            return self::$currentLanguage;
-        }
-
         // Check Accept-Language header
         $acceptLanguage = $request->getHeader('Accept-Language')?->getValue() ?? '';
         $preferredLanguage = self::extractLanguageFromHeader($acceptLanguage);
         if ($preferredLanguage) {
-            self::setLanguage($preferredLanguage);
+            self::$currentLanguage = $preferredLanguage;
             return self::$currentLanguage;
         }
 
@@ -64,30 +72,32 @@ class LanguageHelper
     /**
      * Set current language
      */
-    public static function setLanguage(string $language): bool
+    public static function setLanguage(string $language, bool $persist = true): bool
     {
         if (!self::isValidLanguage($language)) {
             return false;
         }
 
         self::$currentLanguage = $language;
-        
-        // Store in session
-        $config = self::getConfig();
-        $session = session();
-        $session->set($config->sessionKey, $language);
 
-        // Store in cookie
-        $response = service('response');
-        $response->setCookie(
-            $config->cookieName,
-            $language,
-            $config->cookieDuration,
-            '',
-            '/',
-            false,
-            true
-        );
+        if ($persist) {
+            // Store in session
+            $config = self::getConfig();
+            $session = session();
+            $session->set($config->sessionKey, $language);
+
+            // Store in cookie
+            $response = service('response');
+            $response->setCookie(
+                $config->cookieName,
+                $language,
+                $config->cookieDuration,
+                '',
+                '/',
+                false,
+                true
+            );
+        }
 
         return true;
     }
@@ -119,6 +129,82 @@ class LanguageHelper
             return $config->languageNames[$language] ?? $language;
         }
         return $config->supportedLanguages[$language] ?? $language;
+    }
+
+    /**
+     * Determine if we should auto-redirect to a locale-prefixed URL.
+     * Uses Accept-Language only when user has not explicitly selected a language.
+     */
+    public static function getAutoRedirectUrl(): ?string
+    {
+        $config = self::getConfig();
+        $request = service('request');
+
+        $method = strtolower($request->getMethod());
+        if ($method !== 'get' && $method !== 'head') {
+            return null;
+        }
+
+        // If user explicitly selected a language, do not auto-redirect
+        $session = session();
+        if ($session->has($config->sessionKey)) {
+            return null;
+        }
+
+        $cookie = $request->getCookie($config->cookieName);
+        if ($cookie && self::isValidLanguage($cookie)) {
+            return null;
+        }
+
+        $languageParam = $request->getGet('lang');
+        if ($languageParam && self::isValidLanguage($languageParam)) {
+            return null;
+        }
+
+        // If URL already includes a locale segment, skip
+        $path = $request->getUri()->getPath();
+        $segments = array_values(array_filter(explode('/', trim($path, '/')), 'strlen'));
+        if ($segments !== [] && self::isValidLanguage($segments[0])) {
+            return null;
+        }
+
+        // Use Accept-Language for first visit only
+        $acceptLanguage = $request->getHeader('Accept-Language')?->getValue() ?? '';
+        $preferredLanguage = self::extractLanguageFromHeader($acceptLanguage);
+        if (!$preferredLanguage || $preferredLanguage === 'en') {
+            return null;
+        }
+
+        return self::getLanguageUrl($preferredLanguage, $path);
+    }
+
+    /**
+     * Build language-specific URL with locale prefix (non-en only)
+     */
+    public static function getLanguageUrl(string $language, ?string $path = null): string
+    {
+        $config = self::getConfig();
+        $request = service('request');
+        $uri = $request->getUri();
+
+        $path = $path ?? $uri->getPath();
+        $path = '/' . ltrim($path, '/');
+
+        $segments = array_values(array_filter(explode('/', trim($path, '/')), 'strlen'));
+        $supported = array_keys($config->supportedLanguages);
+
+        if ($segments !== [] && in_array($segments[0], $supported, true) && $segments[0] !== 'en') {
+            array_shift($segments);
+        }
+
+        $basePath = $segments ? '/' . implode('/', $segments) : '/';
+
+        if ($language === 'en') {
+            return $basePath . ($uri->getQuery() !== '' ? '?' . $uri->getQuery() : '');
+        }
+
+        return '/' . $language . ($basePath === '/' ? '' : $basePath)
+            . ($uri->getQuery() !== '' ? '?' . $uri->getQuery() : '');
     }
 
     /**
@@ -209,5 +295,15 @@ if (!function_exists('getSupportedLanguages')) {
     function getSupportedLanguages(): array
     {
         return LanguageHelper::getSupportedLanguages();
+    }
+}
+
+if (!function_exists('langUrl')) {
+    /**
+     * Build language-specific URL for current path
+     */
+    function langUrl(string $language): string
+    {
+        return LanguageHelper::getLanguageUrl($language);
     }
 }
