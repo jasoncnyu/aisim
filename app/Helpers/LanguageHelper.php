@@ -29,6 +29,9 @@ class LanguageHelper
         // Check locale from URL path prefix (e.g., /de/, /es/)
         $path = $request->getUri()->getPath();
         $segments = array_values(array_filter(explode('/', trim($path, '/')), 'strlen'));
+        if ($segments !== [] && $segments[0] === 'index.php') {
+            array_shift($segments);
+        }
         if ($segments !== [] && self::isValidLanguage($segments[0]) && $segments[0] !== 'en') {
             self::setLanguage($segments[0], true);
             return self::$currentLanguage;
@@ -164,6 +167,9 @@ class LanguageHelper
         // If URL already includes a locale segment, skip
         $path = $request->getUri()->getPath();
         $segments = array_values(array_filter(explode('/', trim($path, '/')), 'strlen'));
+        if ($segments !== [] && $segments[0] === 'index.php') {
+            array_shift($segments);
+        }
         if ($segments !== [] && self::isValidLanguage($segments[0])) {
             return null;
         }
@@ -191,6 +197,9 @@ class LanguageHelper
         $path = '/' . ltrim($path, '/');
 
         $segments = array_values(array_filter(explode('/', trim($path, '/')), 'strlen'));
+        if ($segments !== [] && $segments[0] === 'index.php') {
+            array_shift($segments);
+        }
         $supported = array_keys($config->supportedLanguages);
 
         if ($segments !== [] && in_array($segments[0], $supported, true) && $segments[0] !== 'en') {
