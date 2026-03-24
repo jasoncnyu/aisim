@@ -1,0 +1,62 @@
+<?php
+
+return [
+    'title' => 'Лабораторія Support Vector Machine',
+    'subtitle' => 'Порівняння лінійної класифікації з максимальним зазором та нелінійного розділення з kernel на 2D даних.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Принцип максимального зазору',
+            'p1' => 'Лінійна SVM навчає гіперплощину f(x)=w^Tx+b, що розділяє класи й максимізує зазор.',
+            'equation' => '$$\\min_{w,b}\\ \\frac{1}{2}\\|w\\|^2 + C\\sum_i \\max(0, 1-y_i(w^Tx_i+b))$$',
+            'p2' => 'У цьому симуляторі лінійна модель використовує стохастичні оновлення в стилі Pegasos для оптимізації hinge-loss.',
+        ],
+        '2' => [
+            'title' => '2) Чому kernel допомагають',
+            'p1' => 'Коли дані не лінійно роздільні, kernel методи порівнюють точки у перетвореному просторі ознак.',
+            'p2' => 'Спробуйте RBF для мʼяких локальних меж або Polynomial для вигнутих глобальних меж.',
+            'p3' => 'Support vectors підсвічені як ключові зразки, що визначають поверхню рішень.',
+        ],
+        '3' => [
+            'title' => '3) Вплив параметрів',
+            'li1' => 'lambda: сила регуляризації для лінійних оновлень Pegasos.',
+            'li2' => 'lr: крок, що керує швидкістю та стабільністю оновлень.',
+            'li3' => 'gamma (RBF): більші значення створюють більш локальні межі.',
+            'li4' => 'degree (Poly): більший degree підвищує складність межі.',
+        ],
+        '4' => [
+            'title' => '4) Рекомендований workflow',
+            'step1' => 'Завантажте demo дані та тренуйте Linear SVM кілька епох.',
+            'step2' => 'Огляньте margin lines і тренд точності.',
+            'step3' => 'Перейдіть на Kernel Perceptron і порівняйте нелінійні регіони.',
+            'step4' => 'Налаштуйте kernel параметри й спостерігайте зростання support vectors.',
+        ],
+    ],
+    'controls' => [
+        'class_a' => 'Клас A',
+        'class_b' => 'Клас B',
+        'model_label' => 'Модель:',
+        'model_linear' => 'Linear SVM (Pegasos)',
+        'model_kernel' => 'Kernel Perceptron',
+        'lambda_label' => 'lambda:',
+        'lr_label' => 'LR:',
+        'epochs_label' => 'Epochs:',
+        'kernel_label' => 'Kernel:',
+        'kernel_rbf' => 'RBF',
+        'kernel_poly' => 'Poly',
+        'gamma_label' => 'gamma:',
+        'degree_label' => 'degree:',
+        'load_demo' => 'Load Demo',
+        'step' => 'Step',
+        'run' => 'Run',
+        'stop' => 'Stop',
+        'clear' => 'Clear',
+        'hint' => 'Клікніть, щоб розмістити зразки. Спочатку оберіть Class A/B, потім train і огляньте межі.',
+    ],
+    'status' => [
+        'title' => 'Статус',
+        'points' => 'Точки:',
+        'epoch' => 'Епоха:',
+        'accuracy' => 'Точність training:',
+    ],
+    'model_info_title' => 'Model Info',
+];

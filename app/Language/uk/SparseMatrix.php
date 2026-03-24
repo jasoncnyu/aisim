@@ -1,0 +1,83 @@
+<?php
+
+return [
+    'title' => 'Лабораторія розріджених матриць',
+    'subtitle' => 'Кодуйте розріджені матриці класичними форматами та порівнюйте компресійні компроміси.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Чому існують sparse формати',
+            'p1' => 'Багато реальних матриць здебільшого з нулів. Зберігати кожен нуль — марнувати памʼять і уповільнювати обчислення.',
+            'p2' => 'Sparse формати зберігають лише важливі елементи та їхні позиції. Це зменшує обсяг і прискорює лінійну алгебру.',
+        ],
+        '2' => [
+            'title' => '2) Сімейства кодування',
+            'li1_label' => 'COO',
+            'li1' => 'явні трійки (row, col, value).',
+            'li2_label' => 'CSR / CSC',
+            'li2' => 'компактна індексація по рядках або колонках для швидкого проходу.',
+            'li3_label' => 'RLE',
+            'li3' => 'run-length кодування для рядків з довгими послідовностями нулів.',
+            'li4_label' => 'Dictionary / Bitmap',
+            'li4' => 'легкі кодування для швидкого доступу або компактних бітових патернів.',
+        ],
+        '3' => [
+            'title' => '3) Як користуватися',
+            'step1' => 'Згенеруйте або відредагуйте матрицю.',
+            'step2' => 'Оберіть формат кодування і натисніть Encode.',
+            'step3' => 'Виконайте reconstruct для перевірки та порівняйте розміри.',
+        ],
+    ],
+    'generator' => [
+        'title' => 'Генератор матриці',
+        'rows' => 'Rows',
+        'cols' => 'Cols',
+        'density' => 'Density (non-zero %)',
+        'current' => 'Current:',
+        'value_mode' => 'Value Mode',
+        'rand_int' => 'Random Integers (1..9)',
+        'weighted' => 'Weighted Floats (0..1)',
+        'generate' => 'Generate',
+        'reset' => 'Reset',
+    ],
+    'encoding' => [
+        'title' => 'Encoding',
+        'format' => 'Compression Format',
+        'coo' => 'COO (Coordinate list)',
+        'csr' => 'CSR (Compressed Sparse Row)',
+        'csc' => 'CSC (Compressed Sparse Column)',
+        'rle' => 'RLE (Row-wise Run-Length)',
+        'dict' => 'Dictionary (row -> {col: value})',
+        'bitmap' => 'Bitmap (packed bits)',
+        'encode' => 'Encode',
+        'reconstruct' => 'Reconstruct',
+        'download' => 'Download JSON',
+    ],
+    'summary' => [
+        'title' => 'Підсумок',
+        'dimensions' => 'Dimensions:',
+        'nnz' => 'Non-zero count:',
+        'raw_size' => 'Raw size (dense):',
+        'compressed_size' => 'Compressed size (est.):',
+        'ratio' => 'Compression ratio:',
+        'reconstruction' => 'Reconstruction:',
+        'bytes' => 'bytes',
+    ],
+    'matrix' => [
+        'title' => 'Оригінальна матриця (клікніть для редагування)',
+        'hint' => 'Клікніть по клітинці для редагування. Порожні значення стають нулем.',
+    ],
+    'encoded' => [
+        'title' => 'Encoded Result',
+        'pretty' => 'Pretty view',
+    ],
+    'matrix_json' => [
+        'title' => 'Matrix JSON',
+    ],
+    'notes' => [
+        'title' => 'Notes',
+        'li1' => 'COO простий, але не cache-friendly для великих матриць.',
+        'li2' => 'CSR швидкий для row slicing; CSC швидкий для column slicing.',
+        'li3' => 'RLE найкращий, коли в рядках є довгі послідовності нулів.',
+        'li4' => 'Bitmap добре працює для структурної sparsity, але значення все одно потрібно зберігати.',
+    ],
+];

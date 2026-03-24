@@ -33,6 +33,7 @@ class Localization
         'ru' => 'Русский',
         'it' => 'Italiano',
         'hi' => 'Hindi',
+        'uk' => 'Ukrainian',
     ];
 
     /**
@@ -54,6 +55,7 @@ class Localization
         'ru' => 'Русский',
         'it' => 'Italiano',
         'hi' => 'हिन्दी',
+        'uk' => 'Українська',
     ];
 
     /**

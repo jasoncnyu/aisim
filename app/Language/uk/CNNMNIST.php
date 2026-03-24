@@ -1,0 +1,50 @@
+<?php
+
+return [
+    'title' => 'Лабораторія CNN MNIST',
+    'subtitle' => 'Навчіть компактну multi-class CNN на 10 класах цифр, потім намалюйте цифру і виконайте live inference.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Політика завантаження датасету',
+            'p1' => 'Demo зразки попередньо розподілені по класах 0..9. Базове завантаження бере по 10 зображень на клас (100 загалом).',
+            'p2' => 'Використовуйте Add +10 per Class для збільшення до 20, 30, 40, 50 на клас (max 500).',
+            'p3' => 'Ця конфігурація створена для швидких навчальних експериментів зі збереженням балансу класів.',
+        ],
+        '2' => [
+            'title' => '2) CNN ціль для 10 класів',
+            'p1' => 'Модель дає 10-way softmax розподіл.',
+            'equation' => '$$\\hat{y}_c = \\frac{e^{z_c}}{\\sum_{k=0}^{9} e^{z_k}}, \\quad L = -\\frac{1}{N}\\sum_i\\sum_{c=0}^{9} y_{ic}\\log(\\hat{y}_{ic})$$',
+            'p2' => 'Використовуйте learning rate, batch size, optimizer та параметри архітектури, щоб балансувати швидкість і стабільність.',
+        ],
+    ],
+    'controls' => [
+        'load_base' => 'Load 10 / Class',
+        'add_10' => 'Add +10 / Class',
+        'clear_data' => 'Clear Data',
+        'loaded_per_class' => 'Loaded per class:',
+        'init_weights' => 'Init Weights',
+        'step' => 'Step (1 Epoch)',
+        'run' => 'Run',
+        'stop' => 'Stop',
+        'lr' => 'LR:',
+        'epochs' => 'Epochs:',
+        'batch' => 'Batch:',
+        'optimizer' => 'Optimizer:',
+        'momentum' => 'Momentum:',
+        'conv_filters' => 'Conv Filters:',
+        'hidden_units' => 'Hidden Units:',
+        'apply_arch' => 'Apply Architecture',
+        'clear' => 'Clear',
+        'predict' => 'Predict',
+    ],
+    'metrics' => [
+        'dataset' => 'Dataset:',
+        'epoch' => 'Epoch:',
+        'loss' => 'Loss:',
+        'accuracy' => 'Accuracy:',
+    ],
+    'demo_samples_title' => 'Demo Samples',
+    'loading_images' => 'Loading digit images...',
+    'draw_title' => 'Draw and Predict',
+    'confusion_title' => 'Confusion Matrix',
+];
