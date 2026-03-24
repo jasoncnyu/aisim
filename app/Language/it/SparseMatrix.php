@@ -1,0 +1,83 @@
+<?php
+
+return [
+    'title' => 'Laboratorio matrice sparsa',
+    'subtitle' => 'Codifica matrici sparse con formati classici e confronta i trade-off di compressione.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Perche esistono i formati sparsi',
+            'p1' => 'Molte matrici reali sono per lo piu zeri. Salvare ogni zero spreca memoria e rallenta i calcoli.',
+            'p2' => 'I formati sparsi memorizzano solo le voci importanti e le loro posizioni. Questo puo ridurre lo storage e accelerare l algebra lineare.',
+        ],
+        '2' => [
+            'title' => '2) Famiglie di codifica',
+            'li1_label' => 'COO',
+            'li1' => 'triplette esplicite (riga, colonna, valore).',
+            'li2_label' => 'CSR / CSC',
+            'li2' => 'indicizzazione compatta per righe o colonne per una scansione veloce.',
+            'li3_label' => 'RLE',
+            'li3' => 'run-length encoding per righe con lunghe sequenze di zeri.',
+            'li4_label' => 'Dictionary / Bitmap',
+            'li4' => 'codifiche leggere per lookup veloce o pattern di bit compatti.',
+        ],
+        '3' => [
+            'title' => '3) Come usare',
+            'step1' => 'Genera o modifica una matrice.',
+            'step2' => 'Seleziona un formato di codifica e clicca Encode.',
+            'step3' => 'Ricostruisci per verificare la correttezza e confrontare le dimensioni.',
+        ],
+    ],
+    'generator' => [
+        'title' => 'Generatore di matrice',
+        'rows' => 'Righe',
+        'cols' => 'Colonne',
+        'density' => 'Densita (non-zero %)',
+        'current' => 'Corrente:',
+        'value_mode' => 'Modalita valori',
+        'rand_int' => 'Interi casuali (1..9)',
+        'weighted' => 'Float pesati (0..1)',
+        'generate' => 'Genera',
+        'reset' => 'Reset',
+    ],
+    'encoding' => [
+        'title' => 'Codifica',
+        'format' => 'Formato di compressione',
+        'coo' => 'COO (lista coordinate)',
+        'csr' => 'CSR (Compressed Sparse Row)',
+        'csc' => 'CSC (Compressed Sparse Column)',
+        'rle' => 'RLE (Run-Length per riga)',
+        'dict' => 'Dictionary (riga -> {col: valore})',
+        'bitmap' => 'Bitmap (bit packed)',
+        'encode' => 'Encode',
+        'reconstruct' => 'Reconstruct',
+        'download' => 'Download JSON',
+    ],
+    'summary' => [
+        'title' => 'Riepilogo',
+        'dimensions' => 'Dimensioni:',
+        'nnz' => 'Conteggio non-zero:',
+        'raw_size' => 'Dimensione grezza (densa):',
+        'compressed_size' => 'Dimensione compressa (stimata):',
+        'ratio' => 'Rapporto di compressione:',
+        'reconstruction' => 'Ricostruzione:',
+        'bytes' => 'byte',
+    ],
+    'matrix' => [
+        'title' => 'Matrice originale (clicca per modificare)',
+        'hint' => 'Clicca una cella per modificare. I valori vuoti diventano zero.',
+    ],
+    'encoded' => [
+        'title' => 'Risultato codificato',
+        'pretty' => 'Vista pretty',
+    ],
+    'matrix_json' => [
+        'title' => 'Matrix JSON',
+    ],
+    'notes' => [
+        'title' => 'Note',
+        'li1' => 'COO e semplice ma non cache-friendly per matrici grandi.',
+        'li2' => 'CSR e veloce per slicing per righe; CSC e veloce per slicing per colonne.',
+        'li3' => 'RLE e migliore quando compaiono lunghe sequenze di zeri nelle righe.',
+        'li4' => 'Bitmap funziona bene per sparsita strutturale, ma i valori richiedono comunque storage.',
+    ],
+];

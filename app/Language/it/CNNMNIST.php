@@ -1,0 +1,50 @@
+<?php
+
+return [
+    'title' => 'Laboratorio CNN MNIST',
+    'subtitle' => 'Allena una CNN compatta multi-classe su 10 cifre, poi disegna una cifra e fai inference dal vivo.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Politica di caricamento dataset',
+            'p1' => 'I campioni demo sono preconfezionati per classi 0..9. Il caricamento base prende 10 immagini per classe (100 totali).',
+            'p2' => 'Usa Add +10 per classe per aumentare a 20, 30, 40, 50 per classe (max 500 totali).',
+            'p3' => 'Questa configurazione e pensata per esperimenti educativi veloci mantenendo l equilibrio tra classi.',
+        ],
+        '2' => [
+            'title' => '2) Obiettivo CNN per 10 classi',
+            'p1' => 'Il modello produce una distribuzione softmax a 10 classi.',
+            'equation' => '$$\\hat{y}_c = \\frac{e^{z_c}}{\\sum_{k=0}^{9} e^{z_k}}, \\quad L = -\\frac{1}{N}\\sum_i\\sum_{c=0}^{9} y_{ic}\\log(\\hat{y}_{ic})$$',
+            'p2' => 'Usa learning rate, batch size, optimizer e opzioni architetturali per bilanciare velocita e stabilita.',
+        ],
+    ],
+    'controls' => [
+        'load_base' => 'Carica 10 / classe',
+        'add_10' => 'Aggiungi +10 / classe',
+        'clear_data' => 'Cancella dati',
+        'loaded_per_class' => 'Caricati per classe:',
+        'init_weights' => 'Inizializza pesi',
+        'step' => 'Step (1 epoca)',
+        'run' => 'Esegui',
+        'stop' => 'Stop',
+        'lr' => 'LR:',
+        'epochs' => 'Epoche:',
+        'batch' => 'Batch:',
+        'optimizer' => 'Optimizer:',
+        'momentum' => 'Momentum:',
+        'conv_filters' => 'Filtri conv:',
+        'hidden_units' => 'Unita nascoste:',
+        'apply_arch' => 'Applica architettura',
+        'clear' => 'Cancella',
+        'predict' => 'Predici',
+    ],
+    'metrics' => [
+        'dataset' => 'Dataset:',
+        'epoch' => 'Epoca:',
+        'loss' => 'Loss:',
+        'accuracy' => 'Accuratezza:',
+    ],
+    'demo_samples_title' => 'Campioni demo',
+    'loading_images' => 'Caricamento immagini delle cifre...',
+    'draw_title' => 'Disegna e predici',
+    'confusion_title' => 'Matrice di confusione',
+];

@@ -31,6 +31,7 @@ class Localization
         'vi' => 'Tiếng Việt',
         'tr' => 'Türkçe',
         'ru' => 'Русский',
+        'it' => 'Italiano',
     ];
 
     /**
@@ -50,6 +51,7 @@ class Localization
         'vi' => 'Tiếng Việt',
         'tr' => 'Türkçe',
         'ru' => 'Русский',
+        'it' => 'Italiano',
     ];
 
     /**

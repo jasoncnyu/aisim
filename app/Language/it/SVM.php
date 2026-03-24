@@ -1,0 +1,62 @@
+<?php
+
+return [
+    'title' => 'Laboratorio Support Vector Machine',
+    'subtitle' => 'Confronta classificazione lineare a massimo margine e separazione non lineare con kernel su dati 2D interattivi.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Principio del massimo margine',
+            'p1' => 'La SVM lineare apprende un iperpiano f(x)=w^Tx+b che separa le classi massimizzando il margine.',
+            'equation' => '$$\\min_{w,b}\\ \\frac{1}{2}\\|w\\|^2 + C\\sum_i \\max(0, 1-y_i(w^Tx_i+b))$$',
+            'p2' => 'In questo simulatore, il modello lineare usa aggiornamenti stocastici stile Pegasos per ottimizzare la hinge loss.',
+        ],
+        '2' => [
+            'title' => '2) Perche i kernel aiutano',
+            'p1' => 'Quando i dati non sono linearmente separabili, i metodi kernel confrontano i punti in uno spazio delle feature trasformato.',
+            'p2' => 'Prova RBF per confini locali morbidi o Polinomiale per confini globali curvi.',
+            'p3' => 'I support vector sono evidenziati come campioni chiave che definiscono la superficie decisionale.',
+        ],
+        '3' => [
+            'title' => '3) Effetti dei parametri',
+            'li1' => 'lambda: forza di regolarizzazione per gli update lineari Pegasos.',
+            'li2' => 'lr: step size che controlla velocita e stabilita.',
+            'li3' => 'gamma (RBF): valori piu grandi creano confini piu stretti e locali.',
+            'li4' => 'degree (Poly): grado piu alto aumenta la complessita del confine.',
+        ],
+        '4' => [
+            'title' => '4) Workflow suggerito',
+            'step1' => 'Carica i dati demo e allena la SVM lineare per diverse epoche.',
+            'step2' => 'Ispeziona le linee di margine e il trend di accuratezza.',
+            'step3' => 'Passa a Kernel Perceptron e confronta il comportamento delle regioni non lineari.',
+            'step4' => 'Regola i parametri del kernel e osserva la crescita dei support vector.',
+        ],
+    ],
+    'controls' => [
+        'class_a' => 'Classe A',
+        'class_b' => 'Classe B',
+        'model_label' => 'Modello:',
+        'model_linear' => 'SVM lineare (Pegasos)',
+        'model_kernel' => 'Kernel Perceptron',
+        'lambda_label' => 'lambda:',
+        'lr_label' => 'LR:',
+        'epochs_label' => 'Epoche:',
+        'kernel_label' => 'Kernel:',
+        'kernel_rbf' => 'RBF',
+        'kernel_poly' => 'Poly',
+        'gamma_label' => 'gamma:',
+        'degree_label' => 'degree:',
+        'load_demo' => 'Carica demo',
+        'step' => 'Step',
+        'run' => 'Esegui',
+        'stop' => 'Stop',
+        'clear' => 'Cancella',
+        'hint' => 'Clicca per posizionare i campioni. Seleziona Classe A/B, poi allena e ispeziona i confini.',
+    ],
+    'status' => [
+        'title' => 'Stato',
+        'points' => 'Punti:',
+        'epoch' => 'Epoca:',
+        'accuracy' => 'Accuratezza training:',
+    ],
+    'model_info_title' => 'Info modello',
+];
