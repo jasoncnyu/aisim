@@ -30,6 +30,7 @@ class Localization
         'id' => 'Bahasa Indonesia',
         'vi' => 'Tiếng Việt',
         'tr' => 'Türkçe',
+        'ru' => 'Русский',
     ];
 
     /**
@@ -48,6 +49,7 @@ class Localization
         'id' => 'Bahasa Indonesia',
         'vi' => 'Tiếng Việt',
         'tr' => 'Türkçe',
+        'ru' => 'Русский',
     ];
 
     /**
