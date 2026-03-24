@@ -1,0 +1,83 @@
+﻿<?php
+
+return [
+    'title' => 'Laboratoire de Matrice Creuse',
+    'subtitle' => 'Encodez des matrices creuses avec des formats classiques et comparez les compromis de compression.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Pourquoi les formats creux existent',
+            'p1' => 'Beaucoup de matrices réelles sont surtout des zéros. Stocker chaque zéro gaspille la mémoire et ralentit le calcul.',
+            'p2' => 'Les formats creux stockent seulement les entrées importantes et leurs positions, réduisant le stockage et accélérant l’algèbre linéaire.',
+        ],
+        '2' => [
+            'title' => '2) Familles d’encodage',
+            'li1_label' => 'COO',
+            'li1' => 'triplets explicites (ligne, colonne, valeur).',
+            'li2_label' => 'CSR / CSC',
+            'li2' => 'indexation compacte par ligne/colonne pour un parcours rapide.',
+            'li3_label' => 'RLE',
+            'li3' => 'run-length pour les lignes avec longues suites de zéros.',
+            'li4_label' => 'Dictionnaire / Bitmap',
+            'li4' => 'encodages légers pour recherche rapide ou motifs compacts.',
+        ],
+        '3' => [
+            'title' => '3) Comment utiliser',
+            'step1' => 'Générez ou éditez une matrice.',
+            'step2' => 'Sélectionnez un format et cliquez sur Encode.',
+            'step3' => 'Reconstruisez pour vérifier et comparer les tailles.',
+        ],
+    ],
+    'generator' => [
+        'title' => 'Générateur de matrice',
+        'rows' => 'Lignes',
+        'cols' => 'Colonnes',
+        'density' => 'Densité (% non nul)',
+        'current' => 'Actuel :',
+        'value_mode' => 'Mode de valeur',
+        'rand_int' => 'Entiers aléatoires (1..9)',
+        'weighted' => 'Flottants pondérés (0..1)',
+        'generate' => 'Générer',
+        'reset' => 'Réinitialiser',
+    ],
+    'encoding' => [
+        'title' => 'Encodage',
+        'format' => 'Format de compression',
+        'coo' => 'COO (liste de coordonnées)',
+        'csr' => 'CSR (ligne creuse compressée)',
+        'csc' => 'CSC (colonne creuse compressée)',
+        'rle' => 'RLE (run-length par ligne)',
+        'dict' => 'Dictionnaire (ligne -> {col: valeur})',
+        'bitmap' => 'Bitmap (bits empaquetés)',
+        'encode' => 'Encode',
+        'reconstruct' => 'Reconstruire',
+        'download' => 'Télécharger JSON',
+    ],
+    'summary' => [
+        'title' => 'Résumé',
+        'dimensions' => 'Dimensions :',
+        'nnz' => 'Nombre non nul :',
+        'raw_size' => 'Taille brute (dense) :',
+        'compressed_size' => 'Taille compressée (est.) :',
+        'ratio' => 'Ratio de compression :',
+        'reconstruction' => 'Reconstruction :',
+        'bytes' => 'octets',
+    ],
+    'matrix' => [
+        'title' => 'Matrice originale (cliquer pour éditer)',
+        'hint' => 'Cliquez pour éditer. Les valeurs vides deviennent zéro.',
+    ],
+    'encoded' => [
+        'title' => 'Résultat encodé',
+        'pretty' => 'Vue jolie',
+    ],
+    'matrix_json' => [
+        'title' => 'Matrice JSON',
+    ],
+    'notes' => [
+        'title' => 'Notes',
+        'li1' => 'COO est simple mais peu friendly cache pour les grandes matrices.',
+        'li2' => 'CSR est rapide pour les tranches par ligne ; CSC pour les colonnes.',
+        'li3' => 'RLE est idéal lorsque de longues suites de zéros apparaissent en ligne.',
+        'li4' => 'Bitmap marche bien pour sparsité structurée, mais les valeurs restent stockées.',
+    ],
+];

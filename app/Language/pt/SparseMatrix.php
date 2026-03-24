@@ -1,0 +1,83 @@
+﻿<?php
+
+return [
+    'title' => 'Laboratório de Matriz Esparsa',
+    'subtitle' => 'Codifique matrizes esparsas com formatos clássicos e compare trade-offs de compressão.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Por que formatos esparsos existem',
+            'p1' => 'Muitas matrizes reais são quase todas zeros. Armazenar cada zero desperdiça memória e reduz desempenho.',
+            'p2' => 'Formatos esparsos armazenam apenas entradas importantes e suas posições, reduzindo armazenamento e acelerando álgebra linear.',
+        ],
+        '2' => [
+            'title' => '2) Famílias de codificação',
+            'li1_label' => 'COO',
+            'li1' => 'triplas explícitas (linha, coluna, valor).',
+            'li2_label' => 'CSR / CSC',
+            'li2' => 'indexação compacta por linha ou coluna para percurso rápido.',
+            'li3_label' => 'RLE',
+            'li3' => 'run-length encoding para linhas com longas sequências de zeros.',
+            'li4_label' => 'Dicionário / Bitmap',
+            'li4' => 'codificações leves para busca rápida ou padrões compactos.',
+        ],
+        '3' => [
+            'title' => '3) Como usar',
+            'step1' => 'Gere ou edite uma matriz.',
+            'step2' => 'Selecione o formato e clique em Encode.',
+            'step3' => 'Reconstrua para verificar e comparar tamanhos.',
+        ],
+    ],
+    'generator' => [
+        'title' => 'Gerador de matriz',
+        'rows' => 'Linhas',
+        'cols' => 'Colunas',
+        'density' => 'Densidade (% não zero)',
+        'current' => 'Atual:',
+        'value_mode' => 'Modo de valor',
+        'rand_int' => 'Inteiros aleatórios (1..9)',
+        'weighted' => 'Floats ponderados (0..1)',
+        'generate' => 'Gerar',
+        'reset' => 'Resetar',
+    ],
+    'encoding' => [
+        'title' => 'Codificação',
+        'format' => 'Formato de compressão',
+        'coo' => 'COO (lista de coordenadas)',
+        'csr' => 'CSR (linha esparsa comprimida)',
+        'csc' => 'CSC (coluna esparsa comprimida)',
+        'rle' => 'RLE (run-length por linha)',
+        'dict' => 'Dicionário (linha -> {col: valor})',
+        'bitmap' => 'Bitmap (bits empacotados)',
+        'encode' => 'Encode',
+        'reconstruct' => 'Reconstruir',
+        'download' => 'Baixar JSON',
+    ],
+    'summary' => [
+        'title' => 'Resumo',
+        'dimensions' => 'Dimensões:',
+        'nnz' => 'Contagem não zero:',
+        'raw_size' => 'Tamanho bruto (denso):',
+        'compressed_size' => 'Tamanho comprimido (est.):',
+        'ratio' => 'Razão de compressão:',
+        'reconstruction' => 'Reconstrução:',
+        'bytes' => 'bytes',
+    ],
+    'matrix' => [
+        'title' => 'Matriz original (clique para editar)',
+        'hint' => 'Clique para editar. Valores vazios viram zero.',
+    ],
+    'encoded' => [
+        'title' => 'Resultado codificado',
+        'pretty' => 'Visual bonito',
+    ],
+    'matrix_json' => [
+        'title' => 'Matriz JSON',
+    ],
+    'notes' => [
+        'title' => 'Notas',
+        'li1' => 'COO é simples, mas pouco amigável a cache em matrizes grandes.',
+        'li2' => 'CSR é rápido para fatias de linha; CSC para fatias de coluna.',
+        'li3' => 'RLE é melhor quando há longas sequências de zeros por linha.',
+        'li4' => 'Bitmap funciona bem para sparsity estrutural, mas valores ainda precisam ser armazenados.',
+    ],
+];

@@ -1,0 +1,83 @@
+﻿<?php
+
+return [
+    'title' => 'Sparse Matrix Lab',
+    'subtitle' => 'Encode sparse matrices with classic formats and compare compression trade-offs.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Why Sparse Formats Exist',
+            'p1' => 'Many real-world matrices are mostly zeros. Storing every zero wastes memory and slows computation.',
+            'p2' => 'Sparse formats store only the important entries and their positions. This can reduce storage and speed up linear algebra.',
+        ],
+        '2' => [
+            'title' => '2) Encoding Families',
+            'li1_label' => 'COO',
+            'li1' => 'explicit (row, col, value) triples.',
+            'li2_label' => 'CSR / CSC',
+            'li2' => 'compact row-wise or column-wise indexing for fast traversal.',
+            'li3_label' => 'RLE',
+            'li3' => 'run-length encoding for rows with long stretches of zeros.',
+            'li4_label' => 'Dictionary / Bitmap',
+            'li4' => 'lightweight encodings for fast lookup or compact bit patterns.',
+        ],
+        '3' => [
+            'title' => '3) How to Use',
+            'step1' => 'Generate or edit a matrix.',
+            'step2' => 'Select an encoding format and click Encode.',
+            'step3' => 'Reconstruct to verify correctness and compare sizes.',
+        ],
+    ],
+    'generator' => [
+        'title' => 'Matrix Generator',
+        'rows' => 'Rows',
+        'cols' => 'Cols',
+        'density' => 'Density (non-zero %)',
+        'current' => 'Current:',
+        'value_mode' => 'Value Mode',
+        'rand_int' => 'Random Integers (1..9)',
+        'weighted' => 'Weighted Floats (0..1)',
+        'generate' => 'Generate',
+        'reset' => 'Reset',
+    ],
+    'encoding' => [
+        'title' => 'Encoding',
+        'format' => 'Compression Format',
+        'coo' => 'COO (Coordinate list)',
+        'csr' => 'CSR (Compressed Sparse Row)',
+        'csc' => 'CSC (Compressed Sparse Column)',
+        'rle' => 'RLE (Row-wise Run-Length)',
+        'dict' => 'Dictionary (row -> {col: value})',
+        'bitmap' => 'Bitmap (packed bits)',
+        'encode' => 'Encode',
+        'reconstruct' => 'Reconstruct',
+        'download' => 'Download JSON',
+    ],
+    'summary' => [
+        'title' => 'Summary',
+        'dimensions' => 'Dimensions:',
+        'nnz' => 'Non-zero count:',
+        'raw_size' => 'Raw size (dense):',
+        'compressed_size' => 'Compressed size (est.):',
+        'ratio' => 'Compression ratio:',
+        'reconstruction' => 'Reconstruction:',
+        'bytes' => 'bytes',
+    ],
+    'matrix' => [
+        'title' => 'Original Matrix (click to edit)',
+        'hint' => 'Click a cell to edit. Empty values become zero.',
+    ],
+    'encoded' => [
+        'title' => 'Encoded Result',
+        'pretty' => 'Pretty view',
+    ],
+    'matrix_json' => [
+        'title' => 'Matrix JSON',
+    ],
+    'notes' => [
+        'title' => 'Notes',
+        'li1' => 'COO is simple but not cache-friendly for large matrices.',
+        'li2' => 'CSR is fast for row slicing; CSC is fast for column slicing.',
+        'li3' => 'RLE is best when long runs of zeros appear in rows.',
+        'li4' => 'Bitmap works well for structural sparsity, but values still need storage.',
+    ],
+];

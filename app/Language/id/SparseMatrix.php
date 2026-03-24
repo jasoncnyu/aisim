@@ -1,0 +1,83 @@
+﻿<?php
+
+return [
+    'title' => 'Lab Matriks Sparse',
+    'subtitle' => 'Encode matriks sparse dengan format klasik dan bandingkan trade-off kompresi.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Mengapa Format Sparse Ada',
+            'p1' => 'Banyak matriks dunia nyata sebagian besar berisi nol. Menyimpan setiap nol membuang memori dan memperlambat komputasi.',
+            'p2' => 'Format sparse hanya menyimpan entri penting dan posisinya. Ini dapat mengurangi penyimpanan dan mempercepat aljabar linear.',
+        ],
+        '2' => [
+            'title' => '2) Keluarga Encoding',
+            'li1_label' => 'COO',
+            'li1' => 'triple (baris, kolom, nilai) eksplisit.',
+            'li2_label' => 'CSR / CSC',
+            'li2' => 'indeks kompak per baris atau kolom untuk traversing cepat.',
+            'li3_label' => 'RLE',
+            'li3' => 'run-length encoding untuk baris dengan rentang nol panjang.',
+            'li4_label' => 'Dictionary / Bitmap',
+            'li4' => 'encoding ringan untuk lookup cepat atau pola bit kompak.',
+        ],
+        '3' => [
+            'title' => '3) Cara Menggunakan',
+            'step1' => 'Buat atau edit matriks.',
+            'step2' => 'Pilih format encoding dan klik Encode.',
+            'step3' => 'Rekonstruksi untuk verifikasi dan bandingkan ukuran.',
+        ],
+    ],
+    'generator' => [
+        'title' => 'Generator Matriks',
+        'rows' => 'Baris',
+        'cols' => 'Kolom',
+        'density' => 'Densitas (% non-zero)',
+        'current' => 'Saat ini:',
+        'value_mode' => 'Mode nilai',
+        'rand_int' => 'Integer acak (1..9)',
+        'weighted' => 'Float berbobot (0..1)',
+        'generate' => 'Buat',
+        'reset' => 'Reset',
+    ],
+    'encoding' => [
+        'title' => 'Encoding',
+        'format' => 'Format kompresi',
+        'coo' => 'COO (daftar koordinat)',
+        'csr' => 'CSR (baris sparse terkompresi)',
+        'csc' => 'CSC (kolom sparse terkompresi)',
+        'rle' => 'RLE (run-length per baris)',
+        'dict' => 'Dictionary (baris -> {kolom: nilai})',
+        'bitmap' => 'Bitmap (bit terpaket)',
+        'encode' => 'Encode',
+        'reconstruct' => 'Rekonstruksi',
+        'download' => 'Unduh JSON',
+    ],
+    'summary' => [
+        'title' => 'Ringkasan',
+        'dimensions' => 'Dimensi:',
+        'nnz' => 'Jumlah non-zero:',
+        'raw_size' => 'Ukuran mentah (dense):',
+        'compressed_size' => 'Ukuran terkompresi (est.):',
+        'ratio' => 'Rasio kompresi:',
+        'reconstruction' => 'Rekonstruksi:',
+        'bytes' => 'byte',
+    ],
+    'matrix' => [
+        'title' => 'Matriks asli (klik untuk edit)',
+        'hint' => 'Klik sel untuk edit. Nilai kosong menjadi nol.',
+    ],
+    'encoded' => [
+        'title' => 'Hasil encoding',
+        'pretty' => 'Tampilan rapi',
+    ],
+    'matrix_json' => [
+        'title' => 'Matriks JSON',
+    ],
+    'notes' => [
+        'title' => 'Catatan',
+        'li1' => 'COO sederhana tetapi kurang ramah cache untuk matriks besar.',
+        'li2' => 'CSR cepat untuk slicing baris; CSC cepat untuk slicing kolom.',
+        'li3' => 'RLE terbaik saat ada rentang nol panjang per baris.',
+        'li4' => 'Bitmap cocok untuk sparsity struktural, namun nilai tetap perlu disimpan.',
+    ],
+];

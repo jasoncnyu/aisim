@@ -1,0 +1,83 @@
+﻿<?php
+
+return [
+    'title' => 'Sparse-Matrix-Labor',
+    'subtitle' => 'Kodieren Sie Sparse-Matrizen mit klassischen Formaten und vergleichen Sie Kompressions-Trade-offs.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Warum es Sparse-Formate gibt',
+            'p1' => 'Viele reale Matrizen bestehen größtenteils aus Nullen. Jede Null zu speichern verschwendet Speicher und verlangsamt Berechnung.',
+            'p2' => 'Sparse-Formate speichern nur wichtige Einträge und Positionen, reduzieren Speicherbedarf und beschleunigen Lineare Algebra.',
+        ],
+        '2' => [
+            'title' => '2) Kodierungsfamilien',
+            'li1_label' => 'COO',
+            'li1' => 'explizite (Zeile, Spalte, Wert)-Tripel.',
+            'li2_label' => 'CSR / CSC',
+            'li2' => 'kompakte zeilen-/spaltenweise Indizes für schnellen Durchlauf.',
+            'li3_label' => 'RLE',
+            'li3' => 'Run-Length-Encoding für Zeilen mit langen Nullbereichen.',
+            'li4_label' => 'Dictionary / Bitmap',
+            'li4' => 'leichte Codierungen für schnelle Suche oder kompakte Bitmuster.',
+        ],
+        '3' => [
+            'title' => '3) So benutzt du es',
+            'step1' => 'Matrix erzeugen oder bearbeiten.',
+            'step2' => 'Format wählen und Encode klicken.',
+            'step3' => 'Rekonstruieren und Größen vergleichen.',
+        ],
+    ],
+    'generator' => [
+        'title' => 'Matrix-Generator',
+        'rows' => 'Zeilen',
+        'cols' => 'Spalten',
+        'density' => 'Dichte (nicht null %)',
+        'current' => 'Aktuell:',
+        'value_mode' => 'Wertmodus',
+        'rand_int' => 'Zufallszahlen (1..9)',
+        'weighted' => 'Gewichtete Floats (0..1)',
+        'generate' => 'Generieren',
+        'reset' => 'Zurücksetzen',
+    ],
+    'encoding' => [
+        'title' => 'Kodierung',
+        'format' => 'Kompressionsformat',
+        'coo' => 'COO (Koordinatenliste)',
+        'csr' => 'CSR (komprimierte Sparse-Zeile)',
+        'csc' => 'CSC (komprimierte Sparse-Spalte)',
+        'rle' => 'RLE (Run-Length pro Zeile)',
+        'dict' => 'Dictionary (Zeile -> {Spalte: Wert})',
+        'bitmap' => 'Bitmap (gepackte Bits)',
+        'encode' => 'Encode',
+        'reconstruct' => 'Rekonstruieren',
+        'download' => 'JSON herunterladen',
+    ],
+    'summary' => [
+        'title' => 'Zusammenfassung',
+        'dimensions' => 'Dimensionen:',
+        'nnz' => 'Nicht-Null-Anzahl:',
+        'raw_size' => 'Rohgröße (dicht):',
+        'compressed_size' => 'Komprimierte Größe (Schätzung):',
+        'ratio' => 'Kompressionsverhältnis:',
+        'reconstruction' => 'Rekonstruktion:',
+        'bytes' => 'Bytes',
+    ],
+    'matrix' => [
+        'title' => 'Originalmatrix (klicken zum Bearbeiten)',
+        'hint' => 'Zelle klicken zum Bearbeiten. Leere Werte werden 0.',
+    ],
+    'encoded' => [
+        'title' => 'Kodiertes Ergebnis',
+        'pretty' => 'Schöne Ansicht',
+    ],
+    'matrix_json' => [
+        'title' => 'Matrix JSON',
+    ],
+    'notes' => [
+        'title' => 'Notizen',
+        'li1' => 'COO ist einfach, aber cache-ineffizient für große Matrizen.',
+        'li2' => 'CSR ist schnell für Zeilen, CSC für Spalten.',
+        'li3' => 'RLE ist ideal bei langen Null-Läufen in Zeilen.',
+        'li4' => 'Bitmap eignet sich für strukturelle Sparsity, Werte müssen jedoch gespeichert werden.',
+    ],
+];

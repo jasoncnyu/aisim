@@ -1,0 +1,83 @@
+﻿<?php
+
+return [
+    'title' => 'Laboratorio de Matriz Dispersa',
+    'subtitle' => 'Codifica matrices dispersas con formatos clásicos y compara trade-offs de compresión.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Por qué existen formatos dispersos',
+            'p1' => 'Muchas matrices reales son mayormente ceros. Guardar cada cero desperdicia memoria y ralentiza el cómputo.',
+            'p2' => 'Los formatos dispersos almacenan solo entradas importantes y sus posiciones, reduciendo almacenamiento y acelerando álgebra lineal.',
+        ],
+        '2' => [
+            'title' => '2) Familias de codificación',
+            'li1_label' => 'COO',
+            'li1' => 'triplas explícitas (fila, col, valor).',
+            'li2_label' => 'CSR / CSC',
+            'li2' => 'índices compactos por fila o columna para recorrido rápido.',
+            'li3_label' => 'RLE',
+            'li3' => 'codificación por longitudes de racha en filas con ceros largos.',
+            'li4_label' => 'Diccionario / Bitmap',
+            'li4' => 'codificaciones ligeras para búsqueda rápida o patrones compactos.',
+        ],
+        '3' => [
+            'title' => '3) Cómo usar',
+            'step1' => 'Genera o edita una matriz.',
+            'step2' => 'Selecciona un formato y haz clic en Codificar.',
+            'step3' => 'Reconstruye para verificar y comparar tamaños.',
+        ],
+    ],
+    'generator' => [
+        'title' => 'Generador de matriz',
+        'rows' => 'Filas',
+        'cols' => 'Columnas',
+        'density' => 'Densidad (% no cero)',
+        'current' => 'Actual:',
+        'value_mode' => 'Modo de valores',
+        'rand_int' => 'Enteros aleatorios (1..9)',
+        'weighted' => 'Flotantes ponderados (0..1)',
+        'generate' => 'Generar',
+        'reset' => 'Reiniciar',
+    ],
+    'encoding' => [
+        'title' => 'Codificación',
+        'format' => 'Formato de compresión',
+        'coo' => 'COO (lista de coordenadas)',
+        'csr' => 'CSR (fila dispersa comprimida)',
+        'csc' => 'CSC (columna dispersa comprimida)',
+        'rle' => 'RLE (longitudes por fila)',
+        'dict' => 'Diccionario (fila -> {col: valor})',
+        'bitmap' => 'Bitmap (bits empaquetados)',
+        'encode' => 'Codificar',
+        'reconstruct' => 'Reconstruir',
+        'download' => 'Descargar JSON',
+    ],
+    'summary' => [
+        'title' => 'Resumen',
+        'dimensions' => 'Dimensiones:',
+        'nnz' => 'Cantidad no cero:',
+        'raw_size' => 'Tamaño bruto (denso):',
+        'compressed_size' => 'Tamaño comprimido (est.):',
+        'ratio' => 'Ratio de compresión:',
+        'reconstruction' => 'Reconstrucción:',
+        'bytes' => 'bytes',
+    ],
+    'matrix' => [
+        'title' => 'Matriz original (clic para editar)',
+        'hint' => 'Haz clic para editar. Valores vacíos se vuelven cero.',
+    ],
+    'encoded' => [
+        'title' => 'Resultado codificado',
+        'pretty' => 'Vista bonita',
+    ],
+    'matrix_json' => [
+        'title' => 'Matriz JSON',
+    ],
+    'notes' => [
+        'title' => 'Notas',
+        'li1' => 'COO es simple pero poco amigable con la caché en matrices grandes.',
+        'li2' => 'CSR es rápido para cortar filas; CSC para cortar columnas.',
+        'li3' => 'RLE funciona mejor con largas rachas de ceros por fila.',
+        'li4' => 'Bitmap es bueno para sparsity estructural, pero valores aún se almacenan.',
+    ],
+];
