@@ -54,7 +54,7 @@
             <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
                 <div class="flex items-center gap-3">
                     <div class="rounded-xl border border-slate-200 bg-white p-2 text-slate-600">
-                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 18l6-6 4 4 6-8"/></svg>
+                        <i class="fa-solid fa-chart-line h-5 w-5"></i>
                     </div>
                 <h4 class="landing-title text-lg font-semibold"><?= lang('MainPage.learningTracks.machinelearning.title') ?></h4>
                 </div>
@@ -73,7 +73,7 @@
             <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
                 <div class="flex items-center gap-3">
                     <div class="rounded-xl border border-slate-200 bg-white p-2 text-slate-600">
-                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="4" y="4" width="6" height="6" rx="1" stroke-width="1.8"/><rect x="14" y="4" width="6" height="6" rx="1" stroke-width="1.8"/><rect x="9" y="14" width="6" height="6" rx="1" stroke-width="1.8"/></svg>
+                        <i class="fa-solid fa-layer-group h-5 w-5"></i>
                     </div>
                 <h4 class="landing-title text-lg font-semibold"><?= lang('MainPage.learningTracks.deeplearning.title') ?></h4>
                 </div>
@@ -91,7 +91,7 @@
             <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
                 <div class="flex items-center gap-3">
                     <div class="rounded-xl border border-slate-200 bg-white p-2 text-slate-600">
-                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v4m0 10v4m-7-7h4m10 0h4M7 7l3 3m4 4l3 3m0-10l-3 3m-4 4l-3 3"/></svg>
+                        <i class="fa-solid fa-bullseye h-5 w-5"></i>
                     </div>
                 <h4 class="landing-title text-lg font-semibold"><?= lang('MainPage.learningTracks.reinforcement.title') ?></h4>
                 </div>

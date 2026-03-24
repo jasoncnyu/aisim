@@ -64,23 +64,23 @@
 
                 <div class="flex flex-wrap items-center gap-2">
                     <button id="btn-run" class="inline-flex items-center gap-2 rounded-lg bg-emerald-700 px-3 py-1.5 text-sm text-white">
-                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5.5a1 1 0 011.5-.86l9 5.5a1 1 0 010 1.72l-9 5.5A1 1 0 017 16.5v-11z"/></svg>
+                        <i class="fa-solid fa-play h-4 w-4" aria-hidden="true"></i>
                         <?= lang('NSlotBandit.controls.run') ?>
                     </button>
                     <button id="btn-step" class="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-3 py-1.5 text-sm">
-                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h12"/><path d="M12 6l6 6-6 6"/></svg>
+                        <i class="fa-solid fa-forward-step h-4 w-4" aria-hidden="true"></i>
                         <?= lang('NSlotBandit.controls.step') ?>
                     </button>
                     <button id="btn-stop" class="inline-flex items-center gap-2 rounded-lg border border-amber-300 bg-amber-50 px-3 py-1.5 text-sm text-amber-800">
-                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
+                        <i class="fa-solid fa-stop h-4 w-4" aria-hidden="true"></i>
                         <?= lang('NSlotBandit.controls.stop') ?>
                     </button>
                     <button id="btn-reset" class="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-3 py-1.5 text-sm">
-                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4v6h6"/><path d="M20 20v-6h-6"/><path d="M20 8a8 8 0 00-14.5-3"/><path d="M4 16a8 8 0 0014.5 3"/></svg>
+                        <i class="fa-solid fa-rotate-right h-4 w-4" aria-hidden="true"></i>
                         <?= lang('NSlotBandit.controls.reset') ?>
                     </button>
                     <button id="btn-export" class="ml-auto inline-flex items-center gap-2 rounded-lg border border-slate-300 px-3 py-1.5 text-sm">
-                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>
+                        <i class="fa-solid fa-download h-4 w-4" aria-hidden="true"></i>
                         <?= lang('NSlotBandit.controls.export_csv') ?>
                     </button>
                 </div>
