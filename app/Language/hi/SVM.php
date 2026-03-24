@@ -1,0 +1,62 @@
+<?php
+
+return [
+    'title' => 'Support Vector Machine Lab',
+    'subtitle' => 'Interactive 2D डेटा पर linear max-margin classification और kernel-based nonlinear separation की तुलना करें।',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Maximum-Margin Principle',
+            'p1' => 'Linear SVM एक hyperplane f(x)=w^Tx+b सीखता है जो classes को अलग करता है और margin को maximize करता है।',
+            'equation' => '$$\\min_{w,b}\\ \\frac{1}{2}\\|w\\|^2 + C\\sum_i \\max(0, 1-y_i(w^Tx_i+b))$$',
+            'p2' => 'इस सिमुलेटर में linear model hinge-loss behavior को optimize करने के लिए Pegasos-style stochastic updates उपयोग करता है।',
+        ],
+        '2' => [
+            'title' => '2) Kernels क्यों मदद करते हैं',
+            'p1' => 'जब डेटा linearly separable नहीं होता, kernel methods points को transformed feature space में compare करते हैं।',
+            'p2' => 'RBF को smooth local boundaries के लिए या Polynomial को curved global boundaries के लिए आज़माएं।',
+            'p3' => 'Support vectors को highlighted samples के रूप में दिखाया जाता है जो decision surface को define करते हैं।',
+        ],
+        '3' => [
+            'title' => '3) Parameter Effects',
+            'li1' => 'lambda: linear Pegasos updates के लिए regularization strength।',
+            'li2' => 'lr: step size जो update speed और stability नियंत्रित करता है।',
+            'li3' => 'gamma (RBF): बड़े मान tight, अधिक local boundaries बनाते हैं।',
+            'li4' => 'degree (Poly): बड़ा degree boundary complexity बढ़ाता है।',
+        ],
+        '4' => [
+            'title' => '4) Suggested Workflow',
+            'step1' => 'Demo data लोड करें और Linear SVM को कई epochs के लिए ट्रेन करें।',
+            'step2' => 'Margin lines और training accuracy trend देखें।',
+            'step3' => 'Kernel Perceptron पर स्विच करें और nonlinear region behavior तुलना करें।',
+            'step4' => 'Kernel parameters ट्यून करें और support vectors की वृद्धि देखें।',
+        ],
+    ],
+    'controls' => [
+        'class_a' => 'Class A',
+        'class_b' => 'Class B',
+        'model_label' => 'Model:',
+        'model_linear' => 'Linear SVM (Pegasos)',
+        'model_kernel' => 'Kernel Perceptron',
+        'lambda_label' => 'lambda:',
+        'lr_label' => 'LR:',
+        'epochs_label' => 'Epochs:',
+        'kernel_label' => 'Kernel:',
+        'kernel_rbf' => 'RBF',
+        'kernel_poly' => 'Poly',
+        'gamma_label' => 'gamma:',
+        'degree_label' => 'degree:',
+        'load_demo' => 'Load Demo',
+        'step' => 'Step',
+        'run' => 'Run',
+        'stop' => 'Stop',
+        'clear' => 'Clear',
+        'hint' => 'Samples रखने के लिए क्लिक करें। पहले Class A/B चुनें, फिर train करें और boundaries देखें।',
+    ],
+    'status' => [
+        'title' => 'Status',
+        'points' => 'Points:',
+        'epoch' => 'Epoch:',
+        'accuracy' => 'Training Accuracy:',
+    ],
+    'model_info_title' => 'Model Info',
+];

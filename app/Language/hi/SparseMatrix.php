@@ -1,0 +1,83 @@
+<?php
+
+return [
+    'title' => 'Sparse Matrix Lab',
+    'subtitle' => 'Sparse matrices को classic formats में encode करें और compression trade-offs तुलना करें।',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Sparse formats क्यों होते हैं',
+            'p1' => 'कई real-world matrices ज्यादातर zeros होती हैं। हर zero को स्टोर करना memory बर्बाद करता है और computation धीमा करता है।',
+            'p2' => 'Sparse formats केवल जरूरी entries और उनकी positions स्टोर करते हैं। इससे storage घटता है और linear algebra तेज होता है।',
+        ],
+        '2' => [
+            'title' => '2) Encoding Families',
+            'li1_label' => 'COO',
+            'li1' => 'explicit (row, col, value) triples।',
+            'li2_label' => 'CSR / CSC',
+            'li2' => 'row-wise या column-wise compact indexing for fast traversal।',
+            'li3_label' => 'RLE',
+            'li3' => 'rows में zeros की लंबी रन के लिए run-length encoding।',
+            'li4_label' => 'Dictionary / Bitmap',
+            'li4' => 'fast lookup या compact bit patterns के लिए lightweight encodings।',
+        ],
+        '3' => [
+            'title' => '3) How to Use',
+            'step1' => 'Matrix generate या edit करें।',
+            'step2' => 'Encoding format चुनें और Encode क्लिक करें।',
+            'step3' => 'Reconstruct करके correctness जांचें और sizes तुलना करें।',
+        ],
+    ],
+    'generator' => [
+        'title' => 'Matrix Generator',
+        'rows' => 'Rows',
+        'cols' => 'Cols',
+        'density' => 'Density (non-zero %)',
+        'current' => 'Current:',
+        'value_mode' => 'Value Mode',
+        'rand_int' => 'Random Integers (1..9)',
+        'weighted' => 'Weighted Floats (0..1)',
+        'generate' => 'Generate',
+        'reset' => 'Reset',
+    ],
+    'encoding' => [
+        'title' => 'Encoding',
+        'format' => 'Compression Format',
+        'coo' => 'COO (Coordinate list)',
+        'csr' => 'CSR (Compressed Sparse Row)',
+        'csc' => 'CSC (Compressed Sparse Column)',
+        'rle' => 'RLE (Row-wise Run-Length)',
+        'dict' => 'Dictionary (row -> {col: value})',
+        'bitmap' => 'Bitmap (packed bits)',
+        'encode' => 'Encode',
+        'reconstruct' => 'Reconstruct',
+        'download' => 'Download JSON',
+    ],
+    'summary' => [
+        'title' => 'Summary',
+        'dimensions' => 'Dimensions:',
+        'nnz' => 'Non-zero count:',
+        'raw_size' => 'Raw size (dense):',
+        'compressed_size' => 'Compressed size (est.):',
+        'ratio' => 'Compression ratio:',
+        'reconstruction' => 'Reconstruction:',
+        'bytes' => 'bytes',
+    ],
+    'matrix' => [
+        'title' => 'Original Matrix (click to edit)',
+        'hint' => 'Cell पर क्लिक करके edit करें। खाली values zero बनती हैं।',
+    ],
+    'encoded' => [
+        'title' => 'Encoded Result',
+        'pretty' => 'Pretty view',
+    ],
+    'matrix_json' => [
+        'title' => 'Matrix JSON',
+    ],
+    'notes' => [
+        'title' => 'Notes',
+        'li1' => 'COO सरल है लेकिन बड़े matrices के लिए cache-friendly नहीं है।',
+        'li2' => 'CSR row slicing के लिए तेज है; CSC column slicing के लिए तेज है।',
+        'li3' => 'RLE तब बेहतर है जब rows में zeros की लंबी run हो।',
+        'li4' => 'Bitmap structural sparsity के लिए अच्छा है, लेकिन values फिर भी स्टोर करनी होती हैं।',
+    ],
+];

@@ -28,7 +28,7 @@ $routes->get('/sparse-matrix', 'Home::sparseMatrix');
 $routes->get('/sitemap.xml', 'Sitemap::index');
 
 // Locale-prefixed routes for non-English languages (e.g., /de/, /es/)
-$routes->addPlaceholder('locale', 'es|ko|zh|pt|ja|fr|de|ar|id|vi|tr|ru|it');
+$routes->addPlaceholder('locale', 'es|ko|zh|pt|ja|fr|de|ar|id|vi|tr|ru|it|hi');
 $routes->group('{locale}', static function ($routes) {
     $routes->get('/', 'Home::index');
     $routes->get('products', 'Home::products');

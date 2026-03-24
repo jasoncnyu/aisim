@@ -1,0 +1,50 @@
+<?php
+
+return [
+    'title' => 'CNN MNIST Lab',
+    'subtitle' => '10 digit classes पर compact multi-class CNN ट्रेन करें और अंक बनाकर live inference करें।',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Dataset Loading Policy',
+            'p1' => 'Demo samples 0..9 classes में pre-packaged हैं। Base load हर class से 10 images (कुल 100) लोड करता है।',
+            'p2' => 'Add +10 per Class से 20, 30, 40, 50 प्रति class तक बढ़ाएं (max 500)।',
+            'p3' => 'यह setup तेज educational experiments के लिए बनाया गया है और class balance बनाए रखता है।',
+        ],
+        '2' => [
+            'title' => '2) CNN Objective for 10 Classes',
+            'p1' => 'मॉडल 10-way softmax distribution देता है।',
+            'equation' => '$$\\hat{y}_c = \\frac{e^{z_c}}{\\sum_{k=0}^{9} e^{z_k}}, \\quad L = -\\frac{1}{N}\\sum_i\\sum_{c=0}^{9} y_{ic}\\log(\\hat{y}_{ic})$$',
+            'p2' => 'Learning rate, batch size, optimizer और architecture options से speed और stability को balance करें।',
+        ],
+    ],
+    'controls' => [
+        'load_base' => 'Load 10 / Class',
+        'add_10' => 'Add +10 / Class',
+        'clear_data' => 'Clear Data',
+        'loaded_per_class' => 'Loaded per class:',
+        'init_weights' => 'Init Weights',
+        'step' => 'Step (1 Epoch)',
+        'run' => 'Run',
+        'stop' => 'Stop',
+        'lr' => 'LR:',
+        'epochs' => 'Epochs:',
+        'batch' => 'Batch:',
+        'optimizer' => 'Optimizer:',
+        'momentum' => 'Momentum:',
+        'conv_filters' => 'Conv Filters:',
+        'hidden_units' => 'Hidden Units:',
+        'apply_arch' => 'Apply Architecture',
+        'clear' => 'Clear',
+        'predict' => 'Predict',
+    ],
+    'metrics' => [
+        'dataset' => 'Dataset:',
+        'epoch' => 'Epoch:',
+        'loss' => 'Loss:',
+        'accuracy' => 'Accuracy:',
+    ],
+    'demo_samples_title' => 'Demo Samples',
+    'loading_images' => 'Loading digit images...',
+    'draw_title' => 'Draw and Predict',
+    'confusion_title' => 'Confusion Matrix',
+];
