@@ -29,6 +29,7 @@ class Localization
         'ar' => 'العربية',
         'id' => 'Bahasa Indonesia',
         'vi' => 'Tiếng Việt',
+        'tr' => 'Türkçe',
     ];
 
     /**
@@ -46,6 +47,7 @@ class Localization
         'ar' => 'العربية',
         'id' => 'Bahasa Indonesia',
         'vi' => 'Tiếng Việt',
+        'tr' => 'Türkçe',
     ];
 
     /**

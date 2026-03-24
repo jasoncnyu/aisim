@@ -1,0 +1,83 @@
+<?php
+
+return [
+    'title' => 'Seyrek Matris Lab',
+    'subtitle' => 'Klasik formatlarla seyrek matrisleri kodla ve sıkıştırma ödünlerini karşılaştır.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Seyrek Formatlar Neden Var',
+            'p1' => 'Gerçek dünyadaki birçok matris çoğunlukla sıfırdır. Her sıfırı saklamak bellek israfı ve hesaplamayı yavaşlatır.',
+            'p2' => 'Seyrek formatlar sadece önemli girdileri ve konumlarını saklar. Bu, depolamayı azaltır ve doğrusal cebiri hızlandırır.',
+        ],
+        '2' => [
+            'title' => '2) Kodlama Aileleri',
+            'li1_label' => 'COO',
+            'li1' => 'açık (satır, sütun, değer) üçlüleri.',
+            'li2_label' => 'CSR / CSC',
+            'li2' => 'hızlı gezinti için satır/sütun bazlı sıkıştırılmış indeksleme.',
+            'li3_label' => 'RLE',
+            'li3' => 'uzun sıfır koşuları için satır bazlı run-length kodlama.',
+            'li4_label' => 'Dictionary / Bitmap',
+            'li4' => 'hızlı arama veya kompakt bit desenleri için hafif kodlamalar.',
+        ],
+        '3' => [
+            'title' => '3) Nasıl Kullanılır',
+            'step1' => 'Bir matris üret veya düzenle.',
+            'step2' => 'Bir kodlama formatı seç ve Encode’a tıkla.',
+            'step3' => 'Doğruluğu doğrulamak ve boyutları karşılaştırmak için Reconstruct yap.',
+        ],
+    ],
+    'generator' => [
+        'title' => 'Matris Üretici',
+        'rows' => 'Satır',
+        'cols' => 'Sütun',
+        'density' => 'Yoğunluk (sıfır olmayan %)',
+        'current' => 'Mevcut:',
+        'value_mode' => 'Değer Modu',
+        'rand_int' => 'Rastgele Tamsayılar (1..9)',
+        'weighted' => 'Ağırlıklı Floatlar (0..1)',
+        'generate' => 'Üret',
+        'reset' => 'Sıfırla',
+    ],
+    'encoding' => [
+        'title' => 'Kodlama',
+        'format' => 'Sıkıştırma Formatı',
+        'coo' => 'COO (Koordinat listesi)',
+        'csr' => 'CSR (Compressed Sparse Row)',
+        'csc' => 'CSC (Compressed Sparse Column)',
+        'rle' => 'RLE (Satır Bazlı Run-Length)',
+        'dict' => 'Dictionary (row -> {col: value})',
+        'bitmap' => 'Bitmap (bit paketli)',
+        'encode' => 'Encode',
+        'reconstruct' => 'Reconstruct',
+        'download' => 'JSON İndir',
+    ],
+    'summary' => [
+        'title' => 'Özet',
+        'dimensions' => 'Boyutlar:',
+        'nnz' => 'Sıfır olmayan sayısı:',
+        'raw_size' => 'Ham boyut (dense):',
+        'compressed_size' => 'Sıkıştırılmış boyut (tah.):',
+        'ratio' => 'Sıkıştırma oranı:',
+        'reconstruction' => 'Yeniden oluşturma:',
+        'bytes' => 'bytes',
+    ],
+    'matrix' => [
+        'title' => 'Orijinal Matris (düzenlemek için tıkla)',
+        'hint' => 'Hücreye tıkla. Boş değerler sıfır olur.',
+    ],
+    'encoded' => [
+        'title' => 'Kodlanmış Sonuç',
+        'pretty' => 'Güzel görünüm',
+    ],
+    'matrix_json' => [
+        'title' => 'Matris JSON',
+    ],
+    'notes' => [
+        'title' => 'Notlar',
+        'li1' => 'COO basittir ama büyük matrislerde önbellek dostu değildir.',
+        'li2' => 'CSR satır kesmede hızlıdır; CSC sütun kesmede hızlıdır.',
+        'li3' => 'RLE, satırlarda uzun sıfır koşuları olduğunda en iyisidir.',
+        'li4' => 'Bitmap yapısal seyreklik için iyi çalışır ama değerler hâlâ saklanmalıdır.',
+    ],
+];

@@ -1,0 +1,62 @@
+<?php
+
+return [
+    'title' => 'SVM Lab',
+    'subtitle' => 'Etkileşimli 2D veride doğrusal maksimum marj sınıflandırmayı ve kernel tabanlı doğrusal olmayan ayrımı karşılaştır.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Maksimum Marj İlkesi',
+            'p1' => 'Doğrusal SVM, sınıfları ayıran f(x)=w^Tx+b hiper düzlemini öğrenirken marjı maksimize eder.',
+            'equation' => '$$\\min_{w,b}\\ \\frac{1}{2}\\|w\\|^2 + C\\sum_i \\max(0, 1-y_i(w^Tx_i+b))$$',
+            'p2' => 'Bu simülatörde doğrusal model, hinge-loss davranışını optimize etmek için Pegasos tarzı stokastik güncellemeler kullanır.',
+        ],
+        '2' => [
+            'title' => '2) Kernel Neden Yardımcı',
+            'p1' => 'Veri doğrusal ayrılabilir değilse, kernel yöntemleri noktaları dönüştürülmüş özellik uzayında karşılaştırır.',
+            'p2' => 'RBF pürüzsüz yerel sınırlar; Polynomial ise eğrisel küresel sınırlar sağlar.',
+            'p3' => 'Support vector’ler karar yüzeyini belirleyen önemli örnekler olarak vurgulanır.',
+        ],
+        '3' => [
+            'title' => '3) Parametre Etkileri',
+            'li1' => 'lambda: doğrusal Pegasos güncellemeleri için regularization gücü.',
+            'li2' => 'lr: güncelleme hızını ve stabiliteyi belirleyen adım boyu.',
+            'li3' => 'gamma (RBF): daha büyük değerler daha dar, daha yerel sınırlar üretir.',
+            'li4' => 'degree (Poly): daha yüksek derece sınır karmaşıklığını artırır.',
+        ],
+        '4' => [
+            'title' => '4) Önerilen İş Akışı',
+            'step1' => 'Demo veriyi yükle ve Linear SVM’i birkaç epoch eğit.',
+            'step2' => 'Marj çizgilerini ve eğitim doğruluğu trendini incele.',
+            'step3' => 'Kernel Perceptron’a geçip doğrusal olmayan bölgeleri karşılaştır.',
+            'step4' => 'Kernel parametrelerini ayarla ve support vector sayısının artışını gözlemle.',
+        ],
+    ],
+    'controls' => [
+        'class_a' => 'Sınıf A',
+        'class_b' => 'Sınıf B',
+        'model_label' => 'Model:',
+        'model_linear' => 'Doğrusal SVM (Pegasos)',
+        'model_kernel' => 'Kernel Perceptron',
+        'lambda_label' => 'lambda:',
+        'lr_label' => 'LR:',
+        'epochs_label' => 'Epochs:',
+        'kernel_label' => 'Kernel:',
+        'kernel_rbf' => 'RBF',
+        'kernel_poly' => 'Poly',
+        'gamma_label' => 'gamma:',
+        'degree_label' => 'degree:',
+        'load_demo' => 'Demo Yükle',
+        'step' => 'Adım',
+        'run' => 'Çalıştır',
+        'stop' => 'Durdur',
+        'clear' => 'Temizle',
+        'hint' => 'Örnek yerleştirmek için tıkla. Önce Class A/B seç, sonra eğit ve sınırları incele.',
+    ],
+    'status' => [
+        'title' => 'Durum',
+        'points' => 'Noktalar:',
+        'epoch' => 'Epoch:',
+        'accuracy' => 'Eğitim Doğruluğu:',
+    ],
+    'model_info_title' => 'Model Bilgisi',
+];

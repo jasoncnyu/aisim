@@ -1,0 +1,50 @@
+<?php
+
+return [
+    'title' => 'CNN MNIST Lab',
+    'subtitle' => '10 rakam sınıfında kompakt bir CNN eğit ve sonra bir rakam çizip canlı çıkarım yap.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Veri Seti Yükleme Politikası',
+            'p1' => 'Demo örnekleri 0..9 sınıflarına göre paketlenmiştir. Temel yükleme sınıf başına 10 görüntü (toplam 100) getirir.',
+            'p2' => 'Sınıf başına +10 ekleyerek 20, 30, 40, 50’ye kadar artır (maks 500).',
+            'p3' => 'Bu yapı, sınıf dengesini korurken hızlı eğitim deneyleri için tasarlanmıştır.',
+        ],
+        '2' => [
+            'title' => '2) 10 Sınıf için CNN Amacı',
+            'p1' => 'Model 10-yollu softmax dağılımı üretir.',
+            'equation' => '$$\\hat{y}_c = \\frac{e^{z_c}}{\\sum_{k=0}^{9} e^{z_k}}, \\quad L = -\\frac{1}{N}\\sum_i\\sum_{c=0}^{9} y_{ic}\\log(\\hat{y}_{ic})$$',
+            'p2' => 'Hız ve stabilite arasında denge için learning rate, batch size, optimizer ve mimari seçeneklerini ayarla.',
+        ],
+    ],
+    'controls' => [
+        'load_base' => 'Sınıf Başına 10 Yükle',
+        'add_10' => 'Sınıf Başına +10 Ekle',
+        'clear_data' => 'Veriyi Temizle',
+        'loaded_per_class' => 'Sınıf başına yüklü:',
+        'init_weights' => 'Ağırlıkları Başlat',
+        'step' => 'Adım (1 Epoch)',
+        'run' => 'Çalıştır',
+        'stop' => 'Durdur',
+        'lr' => 'LR:',
+        'epochs' => 'Epochs:',
+        'batch' => 'Batch:',
+        'optimizer' => 'Optimizer:',
+        'momentum' => 'Momentum:',
+        'conv_filters' => 'Conv Filtreleri:',
+        'hidden_units' => 'Gizli Birimler:',
+        'apply_arch' => 'Mimariyi Uygula',
+        'clear' => 'Temizle',
+        'predict' => 'Tahmin Et',
+    ],
+    'metrics' => [
+        'dataset' => 'Dataset:',
+        'epoch' => 'Epoch:',
+        'loss' => 'Loss:',
+        'accuracy' => 'Accuracy:',
+    ],
+    'demo_samples_title' => 'Demo Örnekleri',
+    'loading_images' => 'Rakam görselleri yükleniyor...',
+    'draw_title' => 'Çiz ve Tahmin Et',
+    'confusion_title' => 'Karışıklık Matrisi',
+];
