@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 
 return [
     'title' => 'Nonlinear Neural Regression Lab',
@@ -6,7 +6,7 @@ return [
     'accordion' => [
         '1' => [
             'title' => '1) Model Formulation',
-            'p1' => 'Unlike linear regression y=ax+b, this lab uses hidden layers to learn nonlinear mappings x ¡æ y.',
+            'p1' => 'Unlike linear regression y=ax+b, this lab uses hidden layers to learn nonlinear mappings x Â¡Ã¦ y.',
             'equation' => '$$\\hat{y}=W_L\\,\\phi(W_{L-1}\\phi(\\cdots\\phi(W_1x+b_1)\\cdots)+b_{L-1})+b_L$$',
             'p2' => 'Choose depth, width, and activation to control model capacity.',
         ],
@@ -61,3 +61,4 @@ return [
         'li4' => 'Try stronger L2 regularization or smaller hidden layers to reduce overfitting.',
     ],
 ];
+
