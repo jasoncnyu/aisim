@@ -1,0 +1,62 @@
+<?php
+
+return [
+    'title' => 'Phòng lab SVM',
+    'subtitle' => 'So sánh phân loại biên tối đa tuyến tính và tách phi tuyến bằng kernel trên dữ liệu 2D.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Nguyên lý biên tối đa',
+            'p1' => 'SVM tuyến tính học siêu phẳng f(x)=w^Tx+b để tách lớp và tối đa hóa biên.',
+            'equation' => '$$\\min_{w,b}\\ \\frac{1}{2}\\|w\\|^2 + C\\sum_i \\max(0, 1-y_i(w^Tx_i+b))$$',
+            'p2' => 'Trong mô phỏng này, mô hình tuyến tính dùng cập nhật ngẫu nhiên kiểu Pegasos để tối ưu hinge loss.',
+        ],
+        '2' => [
+            'title' => '2) Vì sao kernel hữu ích',
+            'p1' => 'Khi dữ liệu không tách tuyến tính, kernel so sánh điểm trong không gian đặc trưng đã biến đổi.',
+            'p2' => 'Thử RBF cho ranh giới cục bộ mượt hoặc Polynomial cho ranh giới cong toàn cục.',
+            'p3' => 'Support vectors được tô nổi bật là các mẫu xác định bề mặt quyết định.',
+        ],
+        '3' => [
+            'title' => '3) Tác động tham số',
+            'li1' => 'lambda: độ mạnh regularization cho cập nhật Pegasos tuyến tính.',
+            'li2' => 'lr: kích thước bước ảnh hưởng tốc độ và độ ổn định.',
+            'li3' => 'gamma (RBF): giá trị lớn tạo ranh giới hẹp và cục bộ hơn.',
+            'li4' => 'degree (Poly): bậc cao làm tăng độ phức tạp ranh giới.',
+        ],
+        '4' => [
+            'title' => '4) Quy trình gợi ý',
+            'step1' => 'Tải dữ liệu demo và huấn luyện Linear SVM vài epoch.',
+            'step2' => 'Quan sát đường biên và xu hướng độ chính xác.',
+            'step3' => 'Chuyển sang Kernel Perceptron và so sánh vùng phi tuyến.',
+            'step4' => 'Chỉnh tham số kernel và quan sát số support vector tăng.',
+        ],
+    ],
+    'controls' => [
+        'class_a' => 'Lớp A',
+        'class_b' => 'Lớp B',
+        'model_label' => 'Mô hình:',
+        'model_linear' => 'SVM tuyến tính (Pegasos)',
+        'model_kernel' => 'Kernel Perceptron',
+        'lambda_label' => 'lambda:',
+        'lr_label' => 'LR:',
+        'epochs_label' => 'Epochs:',
+        'kernel_label' => 'Kernel:',
+        'kernel_rbf' => 'RBF',
+        'kernel_poly' => 'Poly',
+        'gamma_label' => 'gamma:',
+        'degree_label' => 'degree:',
+        'load_demo' => 'Tải demo',
+        'step' => 'Bước',
+        'run' => 'Chạy',
+        'stop' => 'Dừng',
+        'clear' => 'Xóa',
+        'hint' => 'Nhấp để đặt mẫu. Chọn Class A/B trước, rồi huấn luyện và quan sát ranh giới.',
+    ],
+    'status' => [
+        'title' => 'Trạng thái',
+        'points' => 'Số điểm:',
+        'epoch' => 'Epoch:',
+        'accuracy' => 'Độ chính xác huấn luyện:',
+    ],
+    'model_info_title' => 'Thông tin mô hình',
+];

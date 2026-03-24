@@ -1,0 +1,50 @@
+<?php
+
+return [
+    'title' => 'Phòng lab CNN MNIST',
+    'subtitle' => 'Huấn luyện CNN đa lớp gọn trên 10 chữ số, rồi vẽ số và chạy suy luận trực tiếp.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Chính sách tải dữ liệu',
+            'p1' => 'Mẫu demo được đóng gói theo lớp 0..9. Tải cơ bản lấy 10 ảnh mỗi lớp (tổng 100).',
+            'p2' => 'Dùng Add +10 mỗi lớp để tăng dần lên 20, 30, 40, 50 ảnh mỗi lớp (tối đa 500).',
+            'p3' => 'Thiết lập này tối ưu cho thí nghiệm nhanh mà vẫn giữ cân bằng lớp.',
+        ],
+        '2' => [
+            'title' => '2) Mục tiêu CNN cho 10 lớp',
+            'p1' => 'Mô hình xuất phân phối softmax 10 nhánh.',
+            'equation' => '$$\\hat{y}_c = \\frac{e^{z_c}}{\\sum_{k=0}^{9} e^{z_k}}, \\quad L = -\\frac{1}{N}\\sum_i\\sum_{c=0}^{9} y_{ic}\\log(\\hat{y}_{ic})$$',
+            'p2' => 'Dùng learning rate, batch size, optimizer và kiến trúc để cân bằng tốc độ và ổn định.',
+        ],
+    ],
+    'controls' => [
+        'load_base' => 'Tải 10 / lớp',
+        'add_10' => 'Thêm +10 / lớp',
+        'clear_data' => 'Xóa dữ liệu',
+        'loaded_per_class' => 'Đã tải mỗi lớp:',
+        'init_weights' => 'Khởi tạo trọng số',
+        'step' => 'Bước (1 epoch)',
+        'run' => 'Chạy',
+        'stop' => 'Dừng',
+        'lr' => 'LR:',
+        'epochs' => 'Epochs:',
+        'batch' => 'Batch:',
+        'optimizer' => 'Optimizer:',
+        'momentum' => 'Momentum:',
+        'conv_filters' => 'Bộ lọc conv:',
+        'hidden_units' => 'Số nút ẩn:',
+        'apply_arch' => 'Áp dụng kiến trúc',
+        'clear' => 'Xóa',
+        'predict' => 'Dự đoán',
+    ],
+    'metrics' => [
+        'dataset' => 'Dataset:',
+        'epoch' => 'Epoch:',
+        'loss' => 'Loss:',
+        'accuracy' => 'Accuracy:',
+    ],
+    'demo_samples_title' => 'Mẫu demo',
+    'loading_images' => 'Đang tải ảnh chữ số...',
+    'draw_title' => 'Vẽ và dự đoán',
+    'confusion_title' => 'Ma trận nhầm lẫn',
+];

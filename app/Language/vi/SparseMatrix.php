@@ -1,0 +1,83 @@
+<?php
+
+return [
+    'title' => 'Phòng lab ma trận thưa',
+    'subtitle' => 'Mã hóa ma trận thưa bằng các định dạng cổ điển và so sánh đánh đổi nén.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Vì sao có định dạng thưa',
+            'p1' => 'Nhiều ma trận thực tế chủ yếu là số 0. Lưu mọi số 0 gây lãng phí bộ nhớ và chậm tính toán.',
+            'p2' => 'Định dạng thưa chỉ lưu các phần tử quan trọng và vị trí của chúng, giúp giảm lưu trữ và tăng tốc đại số tuyến tính.',
+        ],
+        '2' => [
+            'title' => '2) Các họ mã hóa',
+            'li1_label' => 'COO',
+            'li1' => 'bộ ba (row, col, value) tường minh.',
+            'li2_label' => 'CSR / CSC',
+            'li2' => 'chỉ mục theo hàng hoặc cột gọn để duyệt nhanh.',
+            'li3_label' => 'RLE',
+            'li3' => 'mã hóa độ dài chạy cho các hàng có chuỗi 0 dài.',
+            'li4_label' => 'Dictionary / Bitmap',
+            'li4' => 'mã hóa nhẹ để tra cứu nhanh hoặc mẫu bit gọn.',
+        ],
+        '3' => [
+            'title' => '3) Cách sử dụng',
+            'step1' => 'Tạo hoặc chỉnh ma trận.',
+            'step2' => 'Chọn định dạng và nhấn Encode.',
+            'step3' => 'Reconstruct để kiểm tra đúng và so sánh kích thước.',
+        ],
+    ],
+    'generator' => [
+        'title' => 'Tạo ma trận',
+        'rows' => 'Số hàng',
+        'cols' => 'Số cột',
+        'density' => 'Mật độ (khác 0 %)',
+        'current' => 'Hiện tại:',
+        'value_mode' => 'Chế độ giá trị',
+        'rand_int' => 'Số nguyên ngẫu nhiên (1..9)',
+        'weighted' => 'Số thực có trọng số (0..1)',
+        'generate' => 'Tạo',
+        'reset' => 'Đặt lại',
+    ],
+    'encoding' => [
+        'title' => 'Mã hóa',
+        'format' => 'Định dạng nén',
+        'coo' => 'COO (Danh sách tọa độ)',
+        'csr' => 'CSR (Compressed Sparse Row)',
+        'csc' => 'CSC (Compressed Sparse Column)',
+        'rle' => 'RLE (Run-Length theo hàng)',
+        'dict' => 'Dictionary (row -> {col: value})',
+        'bitmap' => 'Bitmap (bit đóng gói)',
+        'encode' => 'Encode',
+        'reconstruct' => 'Reconstruct',
+        'download' => 'Tải JSON',
+    ],
+    'summary' => [
+        'title' => 'Tóm tắt',
+        'dimensions' => 'Kích thước:',
+        'nnz' => 'Số phần tử khác 0:',
+        'raw_size' => 'Kích thước gốc (dense):',
+        'compressed_size' => 'Kích thước nén (ước tính):',
+        'ratio' => 'Tỷ lệ nén:',
+        'reconstruction' => 'Phục hồi:',
+        'bytes' => 'bytes',
+    ],
+    'matrix' => [
+        'title' => 'Ma trận gốc (nhấp để chỉnh)',
+        'hint' => 'Nhấp một ô để chỉnh. Giá trị trống sẽ thành 0.',
+    ],
+    'encoded' => [
+        'title' => 'Kết quả mã hóa',
+        'pretty' => 'Xem đẹp',
+    ],
+    'matrix_json' => [
+        'title' => 'Matrix JSON',
+    ],
+    'notes' => [
+        'title' => 'Ghi chú',
+        'li1' => 'COO đơn giản nhưng không thân thiện cache với ma trận lớn.',
+        'li2' => 'CSR nhanh cho cắt theo hàng; CSC nhanh cho cắt theo cột.',
+        'li3' => 'RLE tốt khi có chuỗi 0 dài theo hàng.',
+        'li4' => 'Bitmap tốt cho độ thưa cấu trúc, nhưng vẫn cần lưu giá trị.',
+    ],
+];
