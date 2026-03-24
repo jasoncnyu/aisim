@@ -1,0 +1,50 @@
+﻿<?php
+
+return [
+    'title' => 'CNN MNIST 实验',
+    'subtitle' => '用 10 类数字训练 CNN，再手绘数字进行实时推理。',
+    'accordion' => [
+        '1' => [
+            'title' => '1) 数据集加载策略',
+            'p1' => '演示样本按 0..9 分类打包，基础加载每类 10 张（共 100）。',
+            'p2' => '使用“每类 +10”逐步扩展到 20/30/40/50（最多 500）。',
+            'p3' => '该设置用于快速教学实验，同时保持类别平衡。',
+        ],
+        '2' => [
+            'title' => '2) 10 类 CNN 目标',
+            'p1' => '模型输出 10 类 softmax 分布。',
+            'equation' => '$$\\hat{y}_c = \\frac{e^{z_c}}{\\sum_{k=0}^{9} e^{z_k}}, \\quad L = -\\frac{1}{N}\\sum_i\\sum_{c=0}^{9} y_{ic}\\log(\\hat{y}_{ic})$$',
+            'p2' => '用学习率、batch、优化器和架构配置平衡速度与稳定性。',
+        ],
+    ],
+    'controls' => [
+        'load_base' => '加载每类 10 张',
+        'add_10' => '每类 +10',
+        'clear_data' => '清除数据',
+        'loaded_per_class' => '每类已加载：',
+        'init_weights' => '初始化权重',
+        'step' => '步进(1 Epoch)',
+        'run' => '运行',
+        'stop' => '停止',
+        'lr' => 'LR:',
+        'epochs' => 'Epochs:',
+        'batch' => 'Batch:',
+        'optimizer' => '优化器：',
+        'momentum' => 'Momentum：',
+        'conv_filters' => '卷积滤波器：',
+        'hidden_units' => '隐藏单元：',
+        'apply_arch' => '应用架构',
+        'clear' => '清除',
+        'predict' => '预测',
+    ],
+    'metrics' => [
+        'dataset' => '数据集：',
+        'epoch' => 'Epoch：',
+        'loss' => '损失：',
+        'accuracy' => '准确率：',
+    ],
+    'demo_samples_title' => '演示样本',
+    'loading_images' => '正在加载数字图片...',
+    'draw_title' => '绘制并预测',
+    'confusion_title' => '混淆矩阵',
+];

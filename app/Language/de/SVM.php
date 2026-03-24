@@ -1,0 +1,62 @@
+<?php
+
+return [
+    'title' => 'Support-Vector-Machine-Labor',
+    'subtitle' => 'Vergleiche lineare Max-Margin-Klassifikation und kernelbasierte nichtlineare Trennung auf interaktiven 2D-Daten.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Max-Margin-Prinzip',
+            'p1' => 'Lineare SVM lernt eine Hyperebene f(x)=w^Tx+b, die Klassen trennt und die Margin maximiert.',
+            'equation' => '$$\\min_{w,b}\\ \\frac{1}{2}\\|w\\|^2 + C\\sum_i \\max(0, 1-y_i(w^Tx_i+b))$$',
+            'p2' => 'In diesem Simulator nutzt das lineare Modell Pegasos-ähnliche stochastische Updates, um das Hinge-Loss-Verhalten zu optimieren.',
+        ],
+        '2' => [
+            'title' => '2) Warum Kernel helfen',
+            'p1' => 'Wenn Daten nicht linear trennbar sind, vergleichen Kernel-Methoden Punkte im transformierten Merkmalsraum.',
+            'p2' => 'RBF für glatte lokale Grenzen oder Polynomial für gekrümmte globale Grenzen ausprobieren.',
+            'p3' => 'Support-Vektoren werden als hervorgehobene Samples angezeigt, die die Entscheidungsfläche definieren.',
+        ],
+        '3' => [
+            'title' => '3) Parametereffekte',
+            'li1' => 'lambda: Regularisierungsstärke für lineare Pegasos-Updates.',
+            'li2' => 'lr: Schrittweite, die Update-Geschwindigkeit und Stabilität steuert.',
+            'li3' => 'gamma (RBF): größere Werte erzeugen engere, lokalere Grenzen.',
+            'li4' => 'degree (Poly): höherer Grad erhöht die Komplexität der Grenze.',
+        ],
+        '4' => [
+            'title' => '4) Empfohlener Workflow',
+            'step1' => 'Demodaten laden und lineare SVM für mehrere Epochen trainieren.',
+            'step2' => 'Margin-Linien und Trend der Trainingsgenauigkeit prüfen.',
+            'step3' => 'Zu Kernel Perceptron wechseln und nichtlineare Regionen vergleichen.',
+            'step4' => 'Kernel-Parameter abstimmen und Wachstum der Support-Vektoren beobachten.',
+        ],
+    ],
+    'controls' => [
+        'class_a' => 'Klasse A',
+        'class_b' => 'Klasse B',
+        'model_label' => 'Modell:',
+        'model_linear' => 'Lineare SVM (Pegasos)',
+        'model_kernel' => 'Kernel Perceptron',
+        'lambda_label' => 'lambda:',
+        'lr_label' => 'LR:',
+        'epochs_label' => 'Epochen:',
+        'kernel_label' => 'Kernel:',
+        'kernel_rbf' => 'RBF',
+        'kernel_poly' => 'Poly',
+        'gamma_label' => 'gamma:',
+        'degree_label' => 'degree:',
+        'load_demo' => 'Demo laden',
+        'step' => 'Schritt',
+        'run' => 'Start',
+        'stop' => 'Stopp',
+        'clear' => 'Löschen',
+        'hint' => 'Klicken, um Samples zu platzieren. Zuerst Klasse A/B wählen, dann trainieren und Grenzen prüfen.',
+    ],
+    'status' => [
+        'title' => 'Status',
+        'points' => 'Punkte:',
+        'epoch' => 'Epoche:',
+        'accuracy' => 'Trainingsgenauigkeit:',
+    ],
+    'model_info_title' => 'Modellinfo',
+];

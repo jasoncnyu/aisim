@@ -1,0 +1,50 @@
+<?php
+
+return [
+    'title' => 'Laboratoire CNN MNIST',
+    'subtitle' => 'Entrainez un CNN compact sur 10 classes, puis dessinez un chiffre pour l¡¯inference.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Politique de chargement',
+            'p1' => 'Les echantillons demo sont classes 0..9. Chargement de base : 10 images par classe (100).',
+            'p2' => 'Ajouter +10 par classe permet 20/30/40/50 (max 500).',
+            'p3' => 'Concu pour des experiences rapides tout en gardant l¡¯equilibre des classes.',
+        ],
+        '2' => [
+            'title' => '2) Objectif CNN pour 10 classes',
+            'p1' => 'Le modele produit une distribution softmax a 10 classes.',
+            'equation' => '$$\\hat{y}_c = \\frac{e^{z_c}}{\\sum_{k=0}^{9} e^{z_k}}, \\quad L = -\\frac{1}{N}\\sum_i\\sum_{c=0}^{9} y_{ic}\\log(\\hat{y}_{ic})$$',
+            'p2' => 'Ajustez LR, batch, optimiseur et architecture pour vitesse/stabilite.',
+        ],
+    ],
+    'controls' => [
+        'load_base' => 'Charger 10 / classe',
+        'add_10' => 'Ajouter +10 / classe',
+        'clear_data' => 'Effacer les donnees',
+        'loaded_per_class' => 'Charge par classe :',
+        'init_weights' => 'Init poids',
+        'step' => 'Pas (1 epoque)',
+        'run' => 'Executer',
+        'stop' => 'Stop',
+        'lr' => 'LR:',
+        'epochs' => 'Epoques:',
+        'batch' => 'Batch:',
+        'optimizer' => 'Optimiseur:',
+        'momentum' => 'Momentum:',
+        'conv_filters' => 'Filtres conv:',
+        'hidden_units' => 'Unites cachees:',
+        'apply_arch' => 'Appliquer l¡¯architecture',
+        'clear' => 'Effacer',
+        'predict' => 'Predire',
+    ],
+    'metrics' => [
+        'dataset' => 'Dataset:',
+        'epoch' => 'Epoque:',
+        'loss' => 'Perte:',
+        'accuracy' => 'Precision:',
+    ],
+    'demo_samples_title' => 'Echantillons demo',
+    'loading_images' => 'Chargement des images de chiffres...',
+    'draw_title' => 'Dessiner et predire',
+    'confusion_title' => 'Matrice de confusion',
+];

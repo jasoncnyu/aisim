@@ -1,0 +1,50 @@
+<?php
+
+return [
+    'title' => 'CNN-MNIST-Labor',
+    'subtitle' => 'Trainiere ein kompaktes Mehrklassen-CNN auf 10 Ziffernklassen und zeichne dann eine Ziffer für Live-Inferenz.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Richtlinie zum Laden des Datensatzes',
+            'p1' => 'Demo-Samples sind nach Klasse 0..9 vorgepackt. Der Basis-Load lädt 10 Bilder pro Klasse (insgesamt 100).',
+            'p2' => 'Nutze Add +10 pro Klasse, um schrittweise auf 20, 30, 40, 50 pro Klasse zu erhöhen (max. 500 insgesamt).',
+            'p3' => 'Dieses Setup ist für schnelle Lernexperimente ausgelegt und erhält die Klassenbalance.',
+        ],
+        '2' => [
+            'title' => '2) CNN-Ziel für 10 Klassen',
+            'p1' => 'Das Modell gibt eine 10-Wege-Softmax-Verteilung aus.',
+            'equation' => '$$\\hat{y}_c = \\frac{e^{z_c}}{\\sum_{k=0}^{9} e^{z_k}}, \\quad L = -\\frac{1}{N}\\sum_i\\sum_{c=0}^{9} y_{ic}\\log(\\hat{y}_{ic})$$',
+            'p2' => 'Nutze Lernrate, Batchgröße, Optimizer und Architektur-Optionen, um zwischen Geschwindigkeit und Stabilität abzuwägen.',
+        ],
+    ],
+    'controls' => [
+        'load_base' => '10 / Klasse laden',
+        'add_10' => 'Add +10 / Klasse',
+        'clear_data' => 'Daten löschen',
+        'loaded_per_class' => 'Geladen pro Klasse:',
+        'init_weights' => 'Gewichte initialisieren',
+        'step' => 'Schritt (1 Epoche)',
+        'run' => 'Start',
+        'stop' => 'Stopp',
+        'lr' => 'LR:',
+        'epochs' => 'Epochen:',
+        'batch' => 'Batch:',
+        'optimizer' => 'Optimizer:',
+        'momentum' => 'Momentum:',
+        'conv_filters' => 'Conv-Filter:',
+        'hidden_units' => 'Verborgene Einheiten:',
+        'apply_arch' => 'Architektur anwenden',
+        'clear' => 'Löschen',
+        'predict' => 'Vorhersagen',
+    ],
+    'metrics' => [
+        'dataset' => 'Datensatz:',
+        'epoch' => 'Epoche:',
+        'loss' => 'Verlust:',
+        'accuracy' => 'Genauigkeit:',
+    ],
+    'demo_samples_title' => 'Demo-Samples',
+    'loading_images' => 'Ziffernbilder werden geladen...',
+    'draw_title' => 'Zeichnen und vorhersagen',
+    'confusion_title' => 'Konfusionsmatrix',
+];

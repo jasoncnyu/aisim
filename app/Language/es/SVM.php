@@ -1,0 +1,62 @@
+<?php
+
+return [
+    'title' => 'Laboratorio de maquinas de vectores de soporte',
+    'subtitle' => 'Compara clasificacion lineal de margen maximo y separacion no lineal con kernels en datos 2D.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Principio de margen maximo',
+            'p1' => 'El SVM lineal aprende un hiperplano f(x)=w^Tx+b que separa clases maximizando el margen.',
+            'equation' => '$$\\min_{w,b}\\ \\frac{1}{2}\\|w\\|^2 + C\\sum_i \\max(0, 1-y_i(w^Tx_i+b))$$',
+            'p2' => 'En este simulador, el modelo lineal usa actualizaciones estocasticas estilo Pegasos para optimizar la perdida hinge.',
+        ],
+        '2' => [
+            'title' => '2) Por que ayudan los kernels',
+            'p1' => 'Cuando los datos no son separables linealmente, los kernels comparan puntos en un espacio transformado.',
+            'p2' => 'Prueba RBF para fronteras locales suaves o Polinomial para fronteras globales curvas.',
+            'p3' => 'Los vectores de soporte se resaltan como muestras que definen la superficie de decision.',
+        ],
+        '3' => [
+            'title' => '3) Efecto de parametros',
+            'li1' => 'lambda: fuerza de regularizacion para las actualizaciones Pegasos.',
+            'li2' => 'lr: tamano de paso que controla velocidad y estabilidad.',
+            'li3' => 'gamma (RBF): valores grandes crean fronteras mas locales y ajustadas.',
+            'li4' => 'degree (Poly): mayor grado incrementa la complejidad de la frontera.',
+        ],
+        '4' => [
+            'title' => '4) Flujo de trabajo sugerido',
+            'step1' => 'Carga datos de demo y entrena SVM lineal por varias epocas.',
+            'step2' => 'Inspecciona lineas de margen y tendencia de precision.',
+            'step3' => 'Cambia a Kernel Perceptron y compara comportamiento no lineal.',
+            'step4' => 'Ajusta parametros del kernel y observa el crecimiento de vectores de soporte.',
+        ],
+    ],
+    'controls' => [
+        'class_a' => 'Clase A',
+        'class_b' => 'Clase B',
+        'model_label' => 'Modelo:',
+        'model_linear' => 'SVM lineal (Pegasos)',
+        'model_kernel' => 'Kernel Perceptron',
+        'lambda_label' => 'lambda:',
+        'lr_label' => 'LR:',
+        'epochs_label' => 'Epocas:',
+        'kernel_label' => 'Kernel:',
+        'kernel_rbf' => 'RBF',
+        'kernel_poly' => 'Poli',
+        'gamma_label' => 'gamma:',
+        'degree_label' => 'degree:',
+        'load_demo' => 'Cargar demo',
+        'step' => 'Paso',
+        'run' => 'Ejecutar',
+        'stop' => 'Detener',
+        'clear' => 'Limpiar',
+        'hint' => 'Haz clic para colocar muestras. Usa el selector Clase A/B y luego entrena e inspecciona fronteras.',
+    ],
+    'status' => [
+        'title' => 'Estado',
+        'points' => 'Puntos:',
+        'epoch' => 'Epoca:',
+        'accuracy' => 'Precision de entrenamiento:',
+    ],
+    'model_info_title' => 'Informacion del modelo',
+];

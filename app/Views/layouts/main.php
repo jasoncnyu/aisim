@@ -20,6 +20,7 @@
     <meta name="twitter:description" content="<?= esc($metaDescription) ?>">
     <meta name="twitter:image" content="<?= esc($metaOgImage ?? '/assets/brand/og-image.png') ?>">
     <link rel="canonical" href="<?= esc($metaCanonical ?? current_url()) ?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
     <script type="application/ld+json">
         <?= json_encode([
             '@context' => 'https://schema.org',

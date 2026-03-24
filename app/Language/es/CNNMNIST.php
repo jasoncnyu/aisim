@@ -1,0 +1,50 @@
+<?php
+
+return [
+    'title' => 'Laboratorio CNN MNIST',
+    'subtitle' => 'Entrena una CNN compacta para 10 digitos y dibuja un digito para inferencia en vivo.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Politica de carga del dataset',
+            'p1' => 'Las muestras demo estan empaquetadas por clase 0..9. La carga base trae 10 imagenes por clase.',
+            'p2' => 'Usa Agregar +10 por clase para escalar a 20, 30, 40, 50 (max 500).',
+            'p3' => 'Disenado para experimentos rapidos manteniendo balance de clases.',
+        ],
+        '2' => [
+            'title' => '2) Objetivo CNN para 10 clases',
+            'p1' => 'El modelo produce una distribucion softmax de 10 clases.',
+            'equation' => '$$\\hat{y}_c = \\frac{e^{z_c}}{\\sum_{k=0}^{9} e^{z_k}}, \\quad L = -\\frac{1}{N}\\sum_i\\sum_{c=0}^{9} y_{ic}\\log(\\hat{y}_{ic})$$',
+            'p2' => 'Ajusta LR, batch, optimizador y arquitectura para balancear velocidad y estabilidad.',
+        ],
+    ],
+    'controls' => [
+        'load_base' => 'Cargar 10 / clase',
+        'add_10' => 'Agregar +10 / clase',
+        'clear_data' => 'Borrar datos',
+        'loaded_per_class' => 'Cargado por clase:',
+        'init_weights' => 'Inicializar pesos',
+        'step' => 'Paso (1 epoca)',
+        'run' => 'Ejecutar',
+        'stop' => 'Detener',
+        'lr' => 'LR:',
+        'epochs' => 'Epocas:',
+        'batch' => 'Batch:',
+        'optimizer' => 'Optimizador:',
+        'momentum' => 'Momentum:',
+        'conv_filters' => 'Filtros conv:',
+        'hidden_units' => 'Unidades ocultas:',
+        'apply_arch' => 'Aplicar arquitectura',
+        'clear' => 'Limpiar',
+        'predict' => 'Predecir',
+    ],
+    'metrics' => [
+        'dataset' => 'Dataset:',
+        'epoch' => 'Epoca:',
+        'loss' => 'Perdida:',
+        'accuracy' => 'Precision:',
+    ],
+    'demo_samples_title' => 'Muestras demo',
+    'loading_images' => 'Cargando imagenes de digitos...',
+    'draw_title' => 'Dibujar y predecir',
+    'confusion_title' => 'Matriz de confusion',
+];

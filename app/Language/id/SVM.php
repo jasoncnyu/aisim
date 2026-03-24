@@ -1,0 +1,62 @@
+<?php
+
+return [
+    'title' => 'Lab Support Vector Machine',
+    'subtitle' => 'Bandingkan klasifikasi linear margin-maksimum dan pemisahan nonlinier berbasis kernel pada data 2D interaktif.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Prinsip Margin Maksimum',
+            'p1' => 'SVM linear mempelajari hiperbidang f(x)=w^Tx+b yang memisahkan kelas sambil memaksimalkan margin.',
+            'equation' => '$$\\min_{w,b}\\ \\frac{1}{2}\\|w\\|^2 + C\\sum_i \\max(0, 1-y_i(w^Tx_i+b))$$',
+            'p2' => 'Pada simulator ini, model linear memakai update stokastik gaya Pegasos untuk mengoptimalkan perilaku hinge-loss.',
+        ],
+        '2' => [
+            'title' => '2) Mengapa Kernel Membantu',
+            'p1' => 'Saat data tidak dapat dipisahkan secara linear, metode kernel membandingkan titik dalam ruang fitur yang ditransformasikan.',
+            'p2' => 'Coba RBF untuk batas lokal halus atau Polynomial untuk batas global melengkung.',
+            'p3' => 'Support vector disorot sebagai sampel yang menentukan permukaan keputusan.',
+        ],
+        '3' => [
+            'title' => '3) Pengaruh Parameter',
+            'li1' => 'lambda: kekuatan regularisasi untuk update Pegasos linear.',
+            'li2' => 'lr: ukuran langkah yang mengontrol kecepatan dan stabilitas update.',
+            'li3' => 'gamma (RBF): nilai lebih besar membuat batas lebih lokal dan rapat.',
+            'li4' => 'degree (Poly): derajat lebih tinggi meningkatkan kompleksitas batas.',
+        ],
+        '4' => [
+            'title' => '4) Alur Kerja Disarankan',
+            'step1' => 'Muat data demo dan latih SVM Linear beberapa epoch.',
+            'step2' => 'Periksa garis margin dan tren akurasi training.',
+            'step3' => 'Ganti ke Kernel Perceptron dan bandingkan perilaku region nonlinier.',
+            'step4' => 'Tuning parameter kernel dan amati pertumbuhan support vector.',
+        ],
+    ],
+    'controls' => [
+        'class_a' => 'Kelas A',
+        'class_b' => 'Kelas B',
+        'model_label' => 'Model:',
+        'model_linear' => 'SVM Linear (Pegasos)',
+        'model_kernel' => 'Kernel Perceptron',
+        'lambda_label' => 'lambda:',
+        'lr_label' => 'LR:',
+        'epochs_label' => 'Epoch:',
+        'kernel_label' => 'Kernel:',
+        'kernel_rbf' => 'RBF',
+        'kernel_poly' => 'Polynomial',
+        'gamma_label' => 'gamma:',
+        'degree_label' => 'degree:',
+        'load_demo' => 'Muat Demo',
+        'step' => 'Langkah',
+        'run' => 'Jalankan',
+        'stop' => 'Hentikan',
+        'clear' => 'Bersihkan',
+        'hint' => 'Klik untuk menempatkan sampel. Gunakan toggle Kelas A/B dulu, lalu latih dan periksa batas.',
+    ],
+    'status' => [
+        'title' => 'Status',
+        'points' => 'Titik:',
+        'epoch' => 'Epoch:',
+        'accuracy' => 'Akurasi Training:',
+    ],
+    'model_info_title' => 'Info Model',
+];

@@ -1,0 +1,62 @@
+<?php
+
+return [
+    'title' => 'Laboratório de Máquina de Vetores de Suporte',
+    'subtitle' => 'Compare classificação linear de margem máxima e separação não linear com kernel em dados 2D interativos.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Princípio da Margem Máxima',
+            'p1' => 'SVM linear aprende um hiperplano f(x)=w^Tx+b que separa classes enquanto maximiza a margem.',
+            'equation' => '$$\\min_{w,b}\\ \\frac{1}{2}\\|w\\|^2 + C\\sum_i \\max(0, 1-y_i(w^Tx_i+b))$$',
+            'p2' => 'Neste simulador, o modelo linear usa atualizações estocásticas no estilo Pegasos para otimizar o comportamento de hinge-loss.',
+        ],
+        '2' => [
+            'title' => '2) Por que Kernels Ajudam',
+            'p1' => 'Quando os dados não são linearmente separáveis, métodos de kernel comparam pontos em espaço de atributos transformado.',
+            'p2' => 'Experimente RBF para fronteiras locais suaves ou Polinomial para fronteiras globais curvas.',
+            'p3' => 'Vetores de suporte são destacados como amostras que definem a superfície de decisão.',
+        ],
+        '3' => [
+            'title' => '3) Efeito dos Parâmetros',
+            'li1' => 'lambda: força de regularização para atualizações lineares Pegasos.',
+            'li2' => 'lr: tamanho do passo que controla velocidade e estabilidade.',
+            'li3' => 'gamma (RBF): valores maiores criam fronteiras mais locais e fechadas.',
+            'li4' => 'degree (Poly): grau maior aumenta a complexidade da fronteira.',
+        ],
+        '4' => [
+            'title' => '4) Fluxo de Trabalho Sugerido',
+            'step1' => 'Carregue dados demo e treine o SVM Linear por várias épocas.',
+            'step2' => 'Inspecione linhas de margem e a tendência de acurácia de treino.',
+            'step3' => 'Mude para Kernel Perceptron e compare o comportamento de regiões não lineares.',
+            'step4' => 'Ajuste parâmetros do kernel e observe o crescimento de vetores de suporte.',
+        ],
+    ],
+    'controls' => [
+        'class_a' => 'Classe A',
+        'class_b' => 'Classe B',
+        'model_label' => 'Modelo:',
+        'model_linear' => 'SVM Linear (Pegasos)',
+        'model_kernel' => 'Kernel Perceptron',
+        'lambda_label' => 'lambda:',
+        'lr_label' => 'LR:',
+        'epochs_label' => 'Épocas:',
+        'kernel_label' => 'Kernel:',
+        'kernel_rbf' => 'RBF',
+        'kernel_poly' => 'Polinomial',
+        'gamma_label' => 'gamma:',
+        'degree_label' => 'grau:',
+        'load_demo' => 'Carregar Demo',
+        'step' => 'Passo',
+        'run' => 'Executar',
+        'stop' => 'Parar',
+        'clear' => 'Limpar',
+        'hint' => 'Clique para colocar amostras. Use o alternador Classe A/B primeiro, depois treine e inspecione as fronteiras.',
+    ],
+    'status' => [
+        'title' => 'Status',
+        'points' => 'Pontos:',
+        'epoch' => 'Época:',
+        'accuracy' => 'Acurácia de Treino:',
+    ],
+    'model_info_title' => 'Info do Modelo',
+];

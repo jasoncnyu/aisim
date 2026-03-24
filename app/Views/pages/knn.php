@@ -3,60 +3,60 @@
 <?= $this->section('content') ?>
 <div class="space-y-4">
     <div class="border-b border-slate-200 pb-3">
-        <h2 class="text-2xl font-semibold">K-Nearest Neighbors Lab</h2>
-        <p class="text-slate-500">Instance-based classification with interactive decision regions, neighbor inspection, and weighted voting.</p>
+        <h2 class="text-2xl font-semibold"><?= lang('KNN.title') ?></h2>
+        <p class="text-slate-500"><?= lang('KNN.subtitle') ?></p>
     </div>
 
     <div class="space-y-2">
         <section x-data="{ open: true }" class="rounded-xl border border-slate-200 bg-white">
             <button type="button" class="w-full px-4 py-3 text-left font-medium flex items-center justify-between" @click="open = !open">
-                <span>1) Core Idea of K-NN</span>
+                <span><?= lang('KNN.accordion.1.title') ?></span>
                 <span class="text-slate-500" x-text="open ? '-' : '+'"></span>
             </button>
             <div x-show="open" x-transition x-cloak class="px-4 pb-4 text-sm text-slate-700 space-y-2">
-                <p>K-NN does not learn global model parameters. It predicts using the labels of nearby training points in feature space.</p>
-                <p>For a query point \(x\), select the closest \(K\) samples and aggregate their labels by majority vote (or weighted vote).</p>
-                <p class="text-center">$$\hat{y}(x)=\arg\max_c \sum_{i\in \mathcal{N}_K(x)} w_i\,\mathbf{1}(y_i=c)$$</p>
+                <p><?= lang('KNN.accordion.1.p1') ?></p>
+                <p><?= lang('KNN.accordion.1.p2') ?></p>
+                <p class="text-center"><?= lang('KNN.accordion.1.equation') ?></p>
             </div>
         </section>
 
         <section x-data="{ open: false }" class="rounded-xl border border-slate-200 bg-white">
             <button type="button" class="w-full px-4 py-3 text-left font-medium flex items-center justify-between" @click="open = !open">
-                <span>2) Effect of K and Distance Weighting</span>
+                <span><?= lang('KNN.accordion.2.title') ?></span>
                 <span class="text-slate-500" x-text="open ? '-' : '+'"></span>
             </button>
             <div x-show="open" x-transition x-cloak class="px-4 pb-4 text-sm text-slate-700 space-y-2">
                 <ul class="list-disc pl-5 space-y-1">
-                    <li>Small <code>K</code>: highly flexible boundary, sensitive to local noise.</li>
-                    <li>Large <code>K</code>: smoother boundary, lower variance, potentially higher bias.</li>
-                    <li>Weighted voting (<code>w=1/d</code>) gives stronger influence to very close neighbors.</li>
+                    <li><?= lang('KNN.accordion.2.li1') ?></li>
+                    <li><?= lang('KNN.accordion.2.li2') ?></li>
+                    <li><?= lang('KNN.accordion.2.li3') ?></li>
                 </ul>
             </div>
         </section>
 
         <section x-data="{ open: false }" class="rounded-xl border border-slate-200 bg-white">
             <button type="button" class="w-full px-4 py-3 text-left font-medium flex items-center justify-between" @click="open = !open">
-                <span>3) Practical Notes</span>
+                <span><?= lang('KNN.accordion.3.title') ?></span>
                 <span class="text-slate-500" x-text="open ? '-' : '+'"></span>
             </button>
             <div x-show="open" x-transition x-cloak class="px-4 pb-4 text-sm text-slate-700 space-y-2">
-                <p>Because K-NN relies on distance, feature scaling is critical in real datasets. Standardization usually improves reliability.</p>
-                <p>Prediction cost grows with dataset size, since distances must be computed against many samples at inference time.</p>
-                <p>Use validation to choose <code>K</code> and evaluate robustness under noisy or overlapping class distributions.</p>
+                <p><?= lang('KNN.accordion.3.p1') ?></p>
+                <p><?= lang('KNN.accordion.3.p2') ?></p>
+                <p><?= lang('KNN.accordion.3.p3') ?></p>
             </div>
         </section>
 
         <section x-data="{ open: false }" class="rounded-xl border border-slate-200 bg-white">
             <button type="button" class="w-full px-4 py-3 text-left font-medium flex items-center justify-between" @click="open = !open">
-                <span>4) Suggested Workflow</span>
+                <span><?= lang('KNN.accordion.4.title') ?></span>
                 <span class="text-slate-500" x-text="open ? '-' : '+'"></span>
             </button>
             <div x-show="open" x-transition x-cloak class="px-4 pb-4 text-sm text-slate-700">
                 <ol class="list-decimal pl-5 space-y-1">
-                    <li>Load a demo distribution (vertical, XOR, concentric, overlap, random).</li>
-                    <li>Adjust <code>K</code> and toggle weighted voting to compare decision boundaries.</li>
-                    <li>Enable Test Mode and click to inspect nearest neighbors and class probability.</li>
-                    <li>Increase region density to see finer boundary details, then lower it for faster rendering.</li>
+                    <li><?= lang('KNN.accordion.4.step1') ?></li>
+                    <li><?= lang('KNN.accordion.4.step2') ?></li>
+                    <li><?= lang('KNN.accordion.4.step3') ?></li>
+                    <li><?= lang('KNN.accordion.4.step4') ?></li>
                 </ol>
             </div>
         </section>
@@ -68,46 +68,46 @@
                 <canvas id="knnCanvas" class="w-full rounded border border-slate-200 bg-white" style="height:560px;"></canvas>
 
                 <div class="mt-3 flex flex-wrap items-center gap-2">
-                    <button id="btn-classA" class="rounded-lg border border-cyan-300 bg-cyan-100 px-3 py-1.5 text-sm text-cyan-900">Class A</button>
-                    <button id="btn-classB" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm">Class B</button>
-                    <button id="btn-testmode" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm">Test Mode</button>
+                    <button id="btn-classA" class="rounded-lg border border-cyan-300 bg-cyan-100 px-3 py-1.5 text-sm text-cyan-900"><?= lang('KNN.controls.class_a') ?></button>
+                    <button id="btn-classB" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm"><?= lang('KNN.controls.class_b') ?></button>
+                    <button id="btn-testmode" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm"><?= lang('KNN.controls.test_mode') ?></button>
 
-                    <label class="text-sm">K:
+                    <label class="text-sm"><?= lang('KNN.controls.k_label') ?>
                         <input id="kVal" type="number" value="5" min="1" max="99" class="ml-1 w-20 rounded-lg border border-slate-300 px-2 py-1">
                     </label>
                     <label class="inline-flex items-center gap-2 text-sm">
                         <input type="checkbox" id="weighted" class="h-4 w-4 rounded border-slate-300">
-                        <span>Weighted (1/d)</span>
+                        <span><?= lang('KNN.controls.weighted') ?></span>
                     </label>
-                    <label class="text-sm">Region Density:
+                    <label class="text-sm"><?= lang('KNN.controls.region_density') ?>
                         <input id="res" type="number" value="120" min="40" max="300" class="ml-1 w-24 rounded-lg border border-slate-300 px-2 py-1">
                     </label>
 
                     <select id="demoType" class="ml-auto rounded-lg border border-slate-300 px-2 py-1.5 text-sm">
-                        <option value="vertical">Mixed Vertical</option>
-                        <option value="xor">XOR (4 Clusters)</option>
-                        <option value="concentric">Concentric (Center vs Ring)</option>
-                        <option value="overlap">Overlapping (Hard)</option>
-                        <option value="random">Random Clusters</option>
+                        <option value="vertical"><?= lang('KNN.controls.demo.vertical') ?></option>
+                        <option value="xor"><?= lang('KNN.controls.demo.xor') ?></option>
+                        <option value="concentric"><?= lang('KNN.controls.demo.concentric') ?></option>
+                        <option value="overlap"><?= lang('KNN.controls.demo.overlap') ?></option>
+                        <option value="random"><?= lang('KNN.controls.demo.random') ?></option>
                     </select>
-                    <button id="btn-demo" class="rounded-lg border border-emerald-300 bg-emerald-50 px-3 py-1.5 text-sm text-emerald-800">Load Demo</button>
-                    <button id="btn-refresh" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm">Refresh</button>
-                    <button id="btn-clear" class="rounded-lg border border-rose-300 bg-rose-50 px-3 py-1.5 text-sm text-rose-900">Clear</button>
+                    <button id="btn-demo" class="rounded-lg border border-emerald-300 bg-emerald-50 px-3 py-1.5 text-sm text-emerald-800"><?= lang('KNN.controls.load_demo') ?></button>
+                    <button id="btn-refresh" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm"><?= lang('KNN.controls.refresh') ?></button>
+                    <button id="btn-clear" class="rounded-lg border border-rose-300 bg-rose-50 px-3 py-1.5 text-sm text-rose-900"><?= lang('KNN.controls.clear') ?></button>
                 </div>
 
-                <p class="mt-2 text-sm text-slate-500">Click to add training samples. In Test Mode, click to classify a query point and inspect its nearest neighbors.</p>
+                <p class="mt-2 text-sm text-slate-500"><?= lang('KNN.controls.hint') ?></p>
             </div>
         </div>
 
         <div class="space-y-4 lg:col-span-4">
             <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-                <h5 class="mb-2 text-lg font-semibold">Model Info</h5>
-                <div><strong>Points:</strong> <span id="countA">0</span> A | <span id="countB">0</span> B</div>
-                <div class="mt-1"><strong>Last Test P(B):</strong> <span id="lastProb">-</span></div>
+                <h5 class="mb-2 text-lg font-semibold"><?= lang('KNN.model.title') ?></h5>
+                <div><strong><?= lang('KNN.model.points') ?></strong> <span id="countA">0</span> A | <span id="countB">0</span> B</div>
+                <div class="mt-1"><strong><?= lang('KNN.model.last_prob') ?></strong> <span id="lastProb">-</span></div>
             </div>
 
             <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-                <h5 class="mb-2 text-lg font-semibold">Nearest Neighbors</h5>
+                <h5 class="mb-2 text-lg font-semibold"><?= lang('KNN.neighbors_title') ?></h5>
                 <pre id="neighbors" class="max-h-80 overflow-auto rounded border border-slate-200 bg-slate-50 p-3 text-xs text-slate-700"></pre>
             </div>
         </div>

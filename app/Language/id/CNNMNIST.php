@@ -1,0 +1,50 @@
+<?php
+
+return [
+    'title' => 'Lab CNN MNIST',
+    'subtitle' => 'Latih CNN multi-kelas pada 10 kelas digit, lalu gambar digit dan lakukan inferensi langsung.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Kebijakan Pemanggilan Dataset',
+            'p1' => 'Sampel demo sudah dikemas per kelas 0..9. Load dasar menarik 10 gambar per kelas (total 100).',
+            'p2' => 'Gunakan Tambah +10 per Kelas untuk menambah ke 20, 30, 40, 50 per kelas (maks 500 total).',
+            'p3' => 'Pengaturan ini dibuat untuk eksperimen edukatif cepat sambil menjaga keseimbangan kelas.',
+        ],
+        '2' => [
+            'title' => '2) Tujuan CNN untuk 10 Kelas',
+            'p1' => 'Model menghasilkan distribusi softmax 10 kelas.',
+            'equation' => '$$\\hat{y}_c = \\frac{e^{z_c}}{\\sum_{k=0}^{9} e^{z_k}}, \\quad L = -\\frac{1}{N}\\sum_i\\sum_{c=0}^{9} y_{ic}\\log(\\hat{y}_{ic})$$',
+            'p2' => 'Gunakan learning rate, ukuran batch, optimizer, dan opsi arsitektur untuk menyeimbangkan kecepatan dan stabilitas.',
+        ],
+    ],
+    'controls' => [
+        'load_base' => 'Muat 10 / Kelas',
+        'add_10' => 'Tambah +10 / Kelas',
+        'clear_data' => 'Bersihkan Data',
+        'loaded_per_class' => 'Dimuat per kelas:',
+        'init_weights' => 'Inisialisasi Bobot',
+        'step' => 'Langkah (1 Epoch)',
+        'run' => 'Jalankan',
+        'stop' => 'Hentikan',
+        'lr' => 'LR:',
+        'epochs' => 'Epoch:',
+        'batch' => 'Batch:',
+        'optimizer' => 'Optimizer:',
+        'momentum' => 'Momentum:',
+        'conv_filters' => 'Filter Conv:',
+        'hidden_units' => 'Unit Tersembunyi:',
+        'apply_arch' => 'Terapkan Arsitektur',
+        'clear' => 'Bersihkan',
+        'predict' => 'Prediksi',
+    ],
+    'metrics' => [
+        'dataset' => 'Dataset:',
+        'epoch' => 'Epoch:',
+        'loss' => 'Loss:',
+        'accuracy' => 'Akurasi:',
+    ],
+    'demo_samples_title' => 'Sampel Demo',
+    'loading_images' => 'Memuat gambar digit...',
+    'draw_title' => 'Gambar dan Prediksi',
+    'confusion_title' => 'Matriks Kebingungan',
+];

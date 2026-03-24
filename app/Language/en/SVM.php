@@ -1,0 +1,62 @@
+<?php
+
+return [
+    'title' => 'Support Vector Machine Lab',
+    'subtitle' => 'Compare linear max-margin classification and kernel-based nonlinear separation on interactive 2D data.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Maximum-Margin Principle',
+            'p1' => 'Linear SVM learns a hyperplane f(x)=w^Tx+b that separates classes while maximizing margin.',
+            'equation' => '$$\\min_{w,b}\\ \\frac{1}{2}\\|w\\|^2 + C\\sum_i \\max(0, 1-y_i(w^Tx_i+b))$$',
+            'p2' => 'In this simulator, the linear model uses Pegasos-style stochastic updates to optimize hinge-loss behavior.',
+        ],
+        '2' => [
+            'title' => '2) Why Kernels Help',
+            'p1' => 'When data is not linearly separable, kernel methods compare points in transformed feature space.',
+            'p2' => 'Try RBF for smooth local boundaries or Polynomial for curved global boundaries.',
+            'p3' => 'Support vectors are highlighted as emphasized samples that define the decision surface.',
+        ],
+        '3' => [
+            'title' => '3) Parameter Effects',
+            'li1' => 'lambda: regularization strength for linear Pegasos updates.',
+            'li2' => 'lr: step size controlling update speed and stability.',
+            'li3' => 'gamma (RBF): larger values create tighter, more local boundaries.',
+            'li4' => 'degree (Poly): higher degree increases boundary complexity.',
+        ],
+        '4' => [
+            'title' => '4) Suggested Workflow',
+            'step1' => 'Load demo data and train Linear SVM for several epochs.',
+            'step2' => 'Inspect margin lines and training accuracy trend.',
+            'step3' => 'Switch to Kernel Perceptron and compare nonlinear region behavior.',
+            'step4' => 'Tune kernel parameters and observe support vector growth.',
+        ],
+    ],
+    'controls' => [
+        'class_a' => 'Class A',
+        'class_b' => 'Class B',
+        'model_label' => 'Model:',
+        'model_linear' => 'Linear SVM (Pegasos)',
+        'model_kernel' => 'Kernel Perceptron',
+        'lambda_label' => 'lambda:',
+        'lr_label' => 'LR:',
+        'epochs_label' => 'Epochs:',
+        'kernel_label' => 'Kernel:',
+        'kernel_rbf' => 'RBF',
+        'kernel_poly' => 'Poly',
+        'gamma_label' => 'gamma:',
+        'degree_label' => 'degree:',
+        'load_demo' => 'Load Demo',
+        'step' => 'Step',
+        'run' => 'Run',
+        'stop' => 'Stop',
+        'clear' => 'Clear',
+        'hint' => 'Click to place samples. Use Class A/B toggle first, then train and inspect boundaries.',
+    ],
+    'status' => [
+        'title' => 'Status',
+        'points' => 'Points:',
+        'epoch' => 'Epoch:',
+        'accuracy' => 'Training Accuracy:',
+    ],
+    'model_info_title' => 'Model Info',
+];

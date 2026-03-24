@@ -1,0 +1,62 @@
+<?php
+
+return [
+    'title' => '서포트 벡터 머신 실습',
+    'subtitle' => '선형 최대 마진 분류와 커널 기반 비선형 분리를 2D 데이터에서 비교합니다.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) 최대 마진 원리',
+            'p1' => '선형 SVM은 f(x)=w^Tx+b 초평면을 학습해 클래스를 분리하면서 마진을 최대화합니다.',
+            'equation' => '$$\\min_{w,b}\\ \\frac{1}{2}\\|w\\|^2 + C\\sum_i \\max(0, 1-y_i(w^Tx_i+b))$$',
+            'p2' => '이 시뮬레이터에서 선형 모델은 Pegasos 스타일의 확률적 업데이트로 hinge 손실을 최적화합니다.',
+        ],
+        '2' => [
+            'title' => '2) 커널이 도움이 되는 이유',
+            'p1' => '데이터가 선형 분리가 어려울 때 커널은 변환된 특징 공간에서 점을 비교합니다.',
+            'p2' => 'RBF는 부드러운 로컬 경계를, Polynomial은 곡선형 전역 경계를 제공합니다.',
+            'p3' => '서포트 벡터는 결정면을 정의하는 중요 샘플로 강조 표시됩니다.',
+        ],
+        '3' => [
+            'title' => '3) 파라미터 영향',
+            'li1' => 'lambda: 선형 Pegasos 업데이트의 정규화 강도.',
+            'li2' => 'lr: 업데이트 속도와 안정성을 조절하는 스텝 크기.',
+            'li3' => 'gamma(RBF): 값이 클수록 더 좁은 로컬 경계.',
+            'li4' => 'degree(Poly): 값이 클수록 경계 복잡도 증가.',
+        ],
+        '4' => [
+            'title' => '4) 추천 워크플로',
+            'step1' => '데모 데이터를 로드하고 선형 SVM을 여러 에폭 학습합니다.',
+            'step2' => '마진 선과 정확도 추이를 확인합니다.',
+            'step3' => 'Kernel Perceptron으로 전환해 비선형 영역을 비교합니다.',
+            'step4' => '커널 파라미터를 조정하고 서포트 벡터 증가를 관찰합니다.',
+        ],
+    ],
+    'controls' => [
+        'class_a' => '클래스 A',
+        'class_b' => '클래스 B',
+        'model_label' => '모델:',
+        'model_linear' => '선형 SVM (Pegasos)',
+        'model_kernel' => '커널 퍼셉트론',
+        'lambda_label' => 'lambda:',
+        'lr_label' => 'LR:',
+        'epochs_label' => '에폭:',
+        'kernel_label' => '커널:',
+        'kernel_rbf' => 'RBF',
+        'kernel_poly' => '폴리',
+        'gamma_label' => 'gamma:',
+        'degree_label' => 'degree:',
+        'load_demo' => '데모 로드',
+        'step' => '단계',
+        'run' => '실행',
+        'stop' => '중지',
+        'clear' => '지우기',
+        'hint' => '샘플을 클릭해 배치하세요. 먼저 클래스 A/B를 선택한 뒤 학습하고 경계를 확인합니다.',
+    ],
+    'status' => [
+        'title' => '상태',
+        'points' => '점 수:',
+        'epoch' => '에폭:',
+        'accuracy' => '학습 정확도:',
+    ],
+    'model_info_title' => '모델 정보',
+];

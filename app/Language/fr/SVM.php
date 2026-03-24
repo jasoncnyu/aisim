@@ -1,0 +1,62 @@
+<?php
+
+return [
+    'title' => 'Laboratoire de Machine à Vecteurs de Support',
+    'subtitle' => 'Comparez la classification linéaire à marge maximale et la séparation non linéaire par noyaux sur des données 2D.',
+    'accordion' => [
+        '1' => [
+            'title' => '1) Principe de la Marge Maximale',
+            'p1' => 'La SVM linéaire apprend un hyperplan f(x)=w^Tx+b qui sépare les classes en maximisant la marge.',
+            'equation' => '$$\\min_{w,b}\\ \\frac{1}{2}\\|w\\|^2 + C\\sum_i \\max(0, 1-y_i(w^Tx_i+b))$$',
+            'p2' => 'Dans ce simulateur, le modèle linéaire utilise des mises à jour stochastiques de type Pegasos pour optimiser le hinge-loss.',
+        ],
+        '2' => [
+            'title' => '2) Pourquoi les Noyaux Aident',
+            'p1' => 'Quand les données ne sont pas linéairement séparables, les méthodes à noyau comparent les points dans un espace de caractéristiques transformé.',
+            'p2' => 'Essayez RBF pour des frontières locales douces ou Polynomial pour des frontières globales courbées.',
+            'p3' => 'Les vecteurs de support sont mis en évidence comme les échantillons qui définissent la surface de décision.',
+        ],
+        '3' => [
+            'title' => '3) Effets des Paramètres',
+            'li1' => 'lambda : force de régularisation pour les mises à jour linéaires Pegasos.',
+            'li2' => 'lr : taille de pas contrôlant la vitesse et la stabilité.',
+            'li3' => 'gamma (RBF) : des valeurs plus grandes créent des frontières plus locales et serrées.',
+            'li4' => 'degree (Poly) : un degré plus élevé augmente la complexité des frontières.',
+        ],
+        '4' => [
+            'title' => '4) Workflow Suggéré',
+            'step1' => 'Chargez des données demo et entraînez le SVM linéaire pendant plusieurs époques.',
+            'step2' => 'Inspectez les lignes de marge et la tendance d\'accuracy.',
+            'step3' => 'Passez au Kernel Perceptron et comparez les régions non linéaires.',
+            'step4' => 'Ajustez les paramètres du noyau et observez la croissance des vecteurs de support.',
+        ],
+    ],
+    'controls' => [
+        'class_a' => 'Classe A',
+        'class_b' => 'Classe B',
+        'model_label' => 'Modèle :',
+        'model_linear' => 'SVM Linéaire (Pegasos)',
+        'model_kernel' => 'Kernel Perceptron',
+        'lambda_label' => 'lambda:',
+        'lr_label' => 'LR:',
+        'epochs_label' => 'Époques:',
+        'kernel_label' => 'Noyau:',
+        'kernel_rbf' => 'RBF',
+        'kernel_poly' => 'Polynomial',
+        'gamma_label' => 'gamma:',
+        'degree_label' => 'degree:',
+        'load_demo' => 'Charger Demo',
+        'step' => 'Étape',
+        'run' => 'Exécuter',
+        'stop' => 'Stop',
+        'clear' => 'Effacer',
+        'hint' => 'Cliquez pour placer des échantillons. Utilisez d\'abord le toggle Classe A/B, puis entraînez et inspectez les frontières.',
+    ],
+    'status' => [
+        'title' => 'Statut',
+        'points' => 'Points :',
+        'epoch' => 'Époque :',
+        'accuracy' => 'Accuracy d\'Entraînement :',
+    ],
+    'model_info_title' => 'Info Modèle',
+];

@@ -1,0 +1,62 @@
+﻿<?php
+
+return [
+    'title' => '支持向量机实验',
+    'subtitle' => '在交互式 2D 数据上比较线性最大间隔分类与核方法的非线性分离。',
+    'accordion' => [
+        '1' => [
+            'title' => '1) 最大间隔原则',
+            'p1' => '线性 SVM 学习超平面 f(x)=w^Tx+b，在分离类别的同时最大化间隔。',
+            'equation' => '$$\\min_{w,b}\\ \\frac{1}{2}\\|w\\|^2 + C\\sum_i \\max(0, 1-y_i(w^Tx_i+b))$$',
+            'p2' => '本模拟器中，线性模型使用 Pegasos 风格的随机更新优化 hinge-loss。',
+        ],
+        '2' => [
+            'title' => '2) 为什么核有效',
+            'p1' => '当数据线性不可分时，核方法在变换后的特征空间比较点。',
+            'p2' => 'RBF 适合平滑的局部边界，Polynomial 适合弯曲的全局边界。',
+            'p3' => '支持向量会高亮显示，它们定义了决策边界。',
+        ],
+        '3' => [
+            'title' => '3) 参数影响',
+            'li1' => 'lambda：线性 Pegasos 更新的正则化强度。',
+            'li2' => 'lr：控制更新速度与稳定性的步长。',
+            'li3' => 'gamma（RBF）：值越大边界越局部。',
+            'li4' => 'degree（Poly）：次数越高边界越复杂。',
+        ],
+        '4' => [
+            'title' => '4) 建议流程',
+            'step1' => '加载演示数据并训练线性 SVM 若干 epoch。',
+            'step2' => '观察间隔线与训练准确率趋势。',
+            'step3' => '切换到 Kernel Perceptron 比较非线性区域。',
+            'step4' => '调整核参数并观察支持向量的增长。',
+        ],
+    ],
+    'controls' => [
+        'class_a' => '类 A',
+        'class_b' => '类 B',
+        'model_label' => '模型：',
+        'model_linear' => '线性 SVM（Pegasos）',
+        'model_kernel' => 'Kernel Perceptron',
+        'lambda_label' => 'lambda:',
+        'lr_label' => 'LR:',
+        'epochs_label' => 'Epochs:',
+        'kernel_label' => 'Kernel:',
+        'kernel_rbf' => 'RBF',
+        'kernel_poly' => 'Polynomial',
+        'gamma_label' => 'gamma:',
+        'degree_label' => 'degree:',
+        'load_demo' => '加载演示',
+        'step' => '步进',
+        'run' => '运行',
+        'stop' => '停止',
+        'clear' => '清除',
+        'hint' => '点击放置样本。先选择类 A/B，再训练并观察边界。',
+    ],
+    'status' => [
+        'title' => '状态',
+        'points' => '点数：',
+        'epoch' => 'Epoch：',
+        'accuracy' => '训练准确率：',
+    ],
+    'model_info_title' => '模型信息',
+];

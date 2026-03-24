@@ -1,0 +1,50 @@
+﻿<?php
+
+return [
+    'title' => 'CNN MNIST ラボ',
+    'subtitle' => '10クラスのCNNを学習し、数字を描いて推論します。',
+    'accordion' => [
+        '1' => [
+            'title' => '1) データセット読み込みポリシー',
+            'p1' => 'デモサンプルは 0..9 のクラスごとに用意されています。基本はクラス10枚(合計100)。',
+            'p2' => '「クラス+10」を使って 20/30/40/50 まで拡張（最大500）。',
+            'p3' => '高速な教育用途向けにクラスバランスを保ちます。',
+        ],
+        '2' => [
+            'title' => '2) 10クラスCNNの目的',
+            'p1' => 'モデルは10クラスのsoftmax分布を出力します。',
+            'equation' => '$$\\hat{y}_c = \\frac{e^{z_c}}{\\sum_{k=0}^{9} e^{z_k}}, \\quad L = -\\frac{1}{N}\\sum_i\\sum_{c=0}^{9} y_{ic}\\log(\\hat{y}_{ic})$$',
+            'p2' => '学習率、バッチ、最適化、構成で速度と安定性を調整します。',
+        ],
+    ],
+    'controls' => [
+        'load_base' => 'クラス10枚読み込み',
+        'add_10' => 'クラス+10',
+        'clear_data' => 'データ削除',
+        'loaded_per_class' => 'クラスあたり読み込み：',
+        'init_weights' => '重み初期化',
+        'step' => 'ステップ(1 Epoch)',
+        'run' => '実行',
+        'stop' => '停止',
+        'lr' => 'LR:',
+        'epochs' => 'Epochs:',
+        'batch' => 'Batch:',
+        'optimizer' => 'オプティマイザ：',
+        'momentum' => 'モメンタム：',
+        'conv_filters' => 'Convフィルタ：',
+        'hidden_units' => '隠れユニット：',
+        'apply_arch' => '構成適用',
+        'clear' => 'クリア',
+        'predict' => '予測',
+    ],
+    'metrics' => [
+        'dataset' => 'データセット：',
+        'epoch' => 'Epoch：',
+        'loss' => '損失：',
+        'accuracy' => '精度：',
+    ],
+    'demo_samples_title' => 'デモサンプル',
+    'loading_images' => '数字画像を読み込み中...',
+    'draw_title' => '描いて予測',
+    'confusion_title' => '混同行列',
+];
