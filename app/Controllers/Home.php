@@ -139,17 +139,17 @@ class Home extends BaseController
         ]);
     }
 
-    protected function renderPage(string $view, string $pageTitle, string $activeMenu, array $meta = []): string
+    protected function renderPage(string $view, string $pageTitle, string $activeMenu = '', array $data = []): string
     {
         return view($view, [
             'pageTitle'      => $pageTitle,
             'activeMenu'     => $activeMenu,
-            'metaDescription'=> $meta['metaDescription'] ?? null,
-            'metaCanonical'  => $meta['metaCanonical'] ?? null,
-            'metaOgImage'    => $meta['metaOgImage'] ?? null,
-            'metaRobots'     => $meta['metaRobots'] ?? null,
-            'metaOgType'     => $meta['metaOgType'] ?? null,
-            'metaTwitterCard'=> $meta['metaTwitterCard'] ?? null,
+            'metaDescription'=> $data['metaDescription'] ?? null,
+            'metaCanonical'  => $data['metaCanonical'] ?? null,
+            'metaOgImage'    => $data['metaOgImage'] ?? null,
+            'metaRobots'     => $data['metaRobots'] ?? null,
+            'metaOgType'     => $data['metaOgType'] ?? null,
+            'metaTwitterCard'=> $data['metaTwitterCard'] ?? null,
         ]);
     }
 }
