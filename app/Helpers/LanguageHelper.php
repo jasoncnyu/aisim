@@ -97,6 +97,7 @@ class LanguageHelper
                 $config->cookieDuration,
                 '',
                 '/',
+                '',
                 false,
                 true
             );
