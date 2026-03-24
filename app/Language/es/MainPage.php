@@ -55,11 +55,49 @@ return [
             'title' => 'Machine Learning',
             'description' => 'Comienza aquí para entender cómo los modelos aprenden de los datos. Verás cómo una curva simple se adapta a puntos, cómo los clasificadores dibujan límites y por qué la capacidad del modelo importa. Este camino se trata de construir intuición para funciones de pérdida, gradientes y geometría de datos.',
             'question' => '¿Úsalo para responder: ¿Por qué un modelo hace bajo ajuste o sobreajuste? ¿Cómo la distribución de datos reformula un límite de decisión?',
+            'reinforcement' => [
+            'title' => 'Aprendizaje por Refuerzo',
+            'description' => 'Aqu? el modelo es un agente que aprende de recompensas en lugar de ejemplos etiquetados. Explorar?s exploraci?n vs. explotaci?n, recompensas escasas y el papel de la din?mica del entorno.',
+            'question' => '?salo para responder: ?Cu?ndo conviene explorar? ?C?mo la estructura de recompensas moldea el comportamiento?',
+            'labs' => [
+                'Bandido de N ranuras',
+                'Mundo en cuadr?cula',
+            ],
         ],
+    ],
         'deeplearning' => [
             'title' => 'Deep Learning',
             'description' => 'Este camino escala la intuición de curvas a redes. Observa cómo las neuronas transforman entradas en representaciones, luego ve cómo los filtros convolucionales extraen características visuales. El enfoque está en cómo la profundidad y la no linealidad cambian lo que puede expresar un modelo.',
             'question' => '¿Úsalo para responder: ¿Cómo una CNN aprende bordes? ¿Por qué un modelo neuronal hace sobreajuste mientras la pérdida sigue mejorando?',
+
+            'labs' => [
+                'Regresi?n NN',
+                'CNN Binary',
+                'CNN MNIST',
+                'Laboratorio XOR',
+                'Tiny Web LLM',
+            ],
+        ],
+    ],
+    'quickStart' => [
+        'title' => 'Sugerencias de inicio r?pido',
+        'items' => [
+            [
+                'label' => '?Nuevo en ML?',
+                'text' => 'Empieza con Regresi?n Lineal y Regresi?n Log?stica, luego compara con ?rboles de Decisi?n.',
+            ],
+            [
+                'label' => '?Interesado en curvas?',
+                'text' => 'Usa Regresi?n NN para ver c?mo la profundidad y el ancho cambian el ajuste.',
+            ],
+            [
+                'label' => '?Quieres intuici?n visual?',
+                'text' => 'Entra en CNN MNIST y dibuja d?gitos para probar la inferencia.',
+            ],
+        ],
+        'cta' => [
+            'start_linear' => 'Empieza con Regresi?n Lineal',
+            'explore_nn' => 'Explora Regresi?n NN',
         ],
     ],
 ];

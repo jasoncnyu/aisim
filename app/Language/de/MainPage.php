@@ -55,11 +55,49 @@ return [
             'title' => 'Machine Learning',
             'description' => 'Beginnen Sie hier, um zu verstehen, wie Modelle aus Daten lernen. Sie werden sehen, wie sich eine einfache Kurve an Punkte anpasst, wie Klassifizierer Grenzen ziehen und warum die Modellkapazität wichtig ist. Dieser Pfad befasst sich mit dem Aufbau von Intuition für Verlustfunktionen, Gradienten und Datengeometrie.',
             'question' => 'Verwenden Sie es, um zu antworten: Warum passt sich ein Modell über- oder unteran? Wie formt eine Datenverteilung eine Entscheidungsgrenze neu?',
+            'reinforcement' => [
+            'title' => 'Best?rkendes Lernen',
+            'description' => 'Hier ist das Modell ein Agent, der aus Belohnungen statt aus gelabelten Beispielen lernt. Du erkundest Exploration vs. Exploitation, sp?rliche Belohnungen und die Rolle der Umweltdynamik.',
+            'question' => 'Nutze es, um zu beantworten: Wann ist Erkunden besser? Wie pr?gt die Belohnungsstruktur das Verhalten?',
+            'labs' => [
+                'N-Slot-Bandit',
+                'Gitterwelt',
+            ],
         ],
+    ],
         'deeplearning' => [
             'title' => 'Deep Learning',
             'description' => 'Dieser Pfad skaliert die Intuition von Kurven zu Netzwerken. Beobachten Sie, wie Neuronen Eingaben in Repräsentationen umwandeln, und sehen Sie dann, wie Faltungsfilter visuelle Merkmale extrahieren. Der Fokus liegt darauf, wie Tiefe und Nichtlinearität das ändern, was ein Modell ausdrücken kann.',
             'question' => 'Verwenden Sie es, um zu antworten: Wie lernt ein CNN Kanten? Warum passt sich ein neuronales Modell über an, während sich der Verlust weiter verbessert?',
+
+            'labs' => [
+                'NN-Regression',
+                'CNN Binary',
+                'CNN MNIST',
+                'XOR-Lab',
+                'Tiny Web LLM',
+            ],
+        ],
+    ],
+    'quickStart' => [
+        'title' => 'Schnellstart-Prompts',
+        'items' => [
+            [
+                'label' => 'Neu in ML?',
+                'text' => 'Starte mit Linearer Regression und Logistischer Regression, dann vergleiche mit Entscheidungsb?umen.',
+            ],
+            [
+                'label' => 'Interessiert an Kurven?',
+                'text' => 'Nutze NN-Regression, um zu sehen, wie Tiefe und Breite die Anpassung ver?ndern.',
+            ],
+            [
+                'label' => 'Visuelle Intuition?',
+                'text' => 'Spring zu CNN MNIST und zeichne Ziffern, um die Inferenz zu testen.',
+            ],
+        ],
+        'cta' => [
+            'start_linear' => 'Mit Linearer Regression starten',
+            'explore_nn' => 'NN-Regression erkunden',
         ],
     ],
 ];

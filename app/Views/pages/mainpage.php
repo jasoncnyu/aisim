@@ -80,11 +80,11 @@
                 <p class="mt-2 text-sm text-slate-700"><?= lang('MainPage.learningTracks.deeplearning.description') ?></p>
                 <p class="mt-2 text-sm text-slate-700"><?= lang('MainPage.learningTracks.deeplearning.question') ?></p>
                 <div class="mt-3 flex flex-wrap gap-2">
-                    <a href="/nn-regression" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm">NN Regression</a>
-                    <a href="/cnn-binary" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm">CNN Binary</a>
-                    <a href="/cnn-mnist" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm">CNN MNIST</a>
-                    <a href="/xor" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm">XOR Lab</a>
-                    <a href="/web-llm" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm">Tiny Web LLM</a>
+                    <a href="/nn-regression" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm"><?= lang('MainPage.learningTracks.deeplearning.labs.0') ?></a>
+                    <a href="/cnn-binary" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm"><?= lang('MainPage.learningTracks.deeplearning.labs.1') ?></a>
+                    <a href="/cnn-mnist" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm"><?= lang('MainPage.learningTracks.deeplearning.labs.2') ?></a>
+                    <a href="/xor" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm"><?= lang('MainPage.learningTracks.deeplearning.labs.3') ?></a>
+                    <a href="/web-llm" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm"><?= lang('MainPage.learningTracks.deeplearning.labs.4') ?></a>
                 </div>
             </div>
 
@@ -93,28 +93,28 @@
                     <div class="rounded-xl border border-slate-200 bg-white p-2 text-slate-600">
                         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v4m0 10v4m-7-7h4m10 0h4M7 7l3 3m4 4l3 3m0-10l-3 3m-4 4l-3 3"/></svg>
                     </div>
-                <h4 class="landing-title text-lg font-semibold">Reinforcement Learning</h4>
+                <h4 class="landing-title text-lg font-semibold"><?= lang('MainPage.learningTracks.reinforcement.title') ?></h4>
                 </div>
-                <p class="mt-2 text-sm text-slate-700">Here the model is an agent that learns from rewards rather than labeled examples. You will explore exploration vs exploitation, sparse rewards, and the role of environment dynamics.</p>
-                <p class="mt-2 text-sm text-slate-700">Use it to answer: When is it better to explore? How does reward structure shape behavior?</p>
+                <p class="mt-2 text-sm text-slate-700"><?= lang('MainPage.learningTracks.reinforcement.description') ?></p>
+                <p class="mt-2 text-sm text-slate-700"><?= lang('MainPage.learningTracks.reinforcement.question') ?></p>
                 <div class="mt-3 flex flex-wrap gap-2">
-                    <a href="/n-slot" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm">N-Slot Bandit</a>
-                    <a href="/grid-world" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm">Grid World</a>
+                    <a href="/n-slot" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm"><?= lang('MainPage.learningTracks.reinforcement.labs.0') ?></a>
+                    <a href="/grid-world" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm"><?= lang('MainPage.learningTracks.reinforcement.labs.1') ?></a>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h3 class="landing-title text-xl font-semibold">Quick Start Prompts</h3>
+        <h3 class="landing-title text-xl font-semibold"><?= lang('MainPage.quickStart.title') ?></h3>
         <div class="mt-4 space-y-3 text-sm text-slate-700">
-            <p><strong>New to ML?</strong> Begin with Linear Regression and Logistic Regression, then compare with Decision Trees.</p>
-            <p><strong>Interested in curves?</strong> Use NN Regression to see how depth and width change the fit.</p>
-            <p><strong>Want visual intuition?</strong> Jump into CNN MNIST and draw digits to test inference.</p>
+            <?php foreach (lang('MainPage.quickStart.items') as $item): ?>
+                <p><strong><?= $item['label'] ?></strong> <?= $item['text'] ?></p>
+            <?php endforeach; ?>
         </div>
         <div class="mt-4 flex flex-wrap gap-2">
-            <a href="/linear-regression" class="rounded-lg bg-slate-900 px-4 py-2 text-sm text-white">Start with Linear Regression</a>
-            <a href="/nn-regression" class="rounded-lg border border-slate-300 px-4 py-2 text-sm">Explore NN Regression</a>
+            <a href="/linear-regression" class="rounded-lg bg-slate-900 px-4 py-2 text-sm text-white"><?= lang('MainPage.quickStart.cta.start_linear') ?></a>
+            <a href="/nn-regression" class="rounded-lg border border-slate-300 px-4 py-2 text-sm"><?= lang('MainPage.quickStart.cta.explore_nn') ?></a>
         </div>
     </section>
 </div>

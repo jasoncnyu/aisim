@@ -55,11 +55,49 @@ return [
             'title' => 'Machine Learning',
             'description' => 'Mulai di sini untuk memahami bagaimana model belajar dari data. Anda akan melihat bagaimana kurva sederhana membengkok untuk menyesuaikan poin, bagaimana pengklasifikasi menggambar batas, dan mengapa kapasitas model penting. Trek ini tentang membangun intuisi untuk fungsi kerugian, gradien, dan geometri data.',
             'question' => 'Gunakan untuk menjawab: Mengapa model kurang pas atau pas berlebihan? Bagaimana distribusi data membentuk kembali batas keputusan?',
+            'reinforcement' => [
+            'title' => 'Pembelajaran Penguatan',
+            'description' => 'Di sini model adalah agen yang belajar dari hadiah, bukan contoh berlabel. Anda akan mengeksplorasi eksplorasi vs eksploitasi, hadiah yang jarang, dan peran dinamika lingkungan.',
+            'question' => 'Gunakan untuk menjawab: Kapan lebih baik bereksplorasi? Bagaimana struktur hadiah membentuk perilaku?',
+            'labs' => [
+                'Bandit N-lengan',
+                'Dunia Kisi',
+            ],
         ],
+    ],
         'deeplearning' => [
             'title' => 'Deep Learning',
             'description' => 'Trek ini menskalakan intuisi dari kurva ke jaringan. Saksikan bagaimana neuron mengubah input menjadi representasi, lalu lihat bagaimana filter konvolusional mengekstrak fitur visual. Fokusnya adalah pada bagaimana kedalaman dan non-linearitas mengubah apa yang dapat diekspresikan model.',
             'question' => 'Gunakan untuk menjawab: Bagaimana CNN mempelajari tepi? Mengapa model neural pas berlebihan saat kerugian terus membaik?',
+
+            'labs' => [
+                'Regresi NN',
+                'CNN Binary',
+                'CNN MNIST',
+                'Lab XOR',
+                'Tiny Web LLM',
+            ],
+        ],
+    ],
+    'quickStart' => [
+        'title' => 'Prompt Mulai Cepat',
+        'items' => [
+            [
+                'label' => 'Baru di ML?',
+                'text' => 'Mulai dengan Regresi Linear dan Regresi Logistik, lalu bandingkan dengan Pohon Keputusan.',
+            ],
+            [
+                'label' => 'Tertarik pada kurva?',
+                'text' => 'Gunakan Regresi NN untuk melihat bagaimana kedalaman dan lebar mengubah kecocokan.',
+            ],
+            [
+                'label' => 'Ingin intuisi visual?',
+                'text' => 'Masuk ke CNN MNIST dan gambar digit untuk menguji inferensi.',
+            ],
+        ],
+        'cta' => [
+            'start_linear' => 'Mulai dengan Regresi Linear',
+            'explore_nn' => 'Jelajahi Regresi NN',
         ],
     ],
 ];

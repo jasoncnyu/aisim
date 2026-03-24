@@ -68,6 +68,43 @@ return [
             'title' => 'Deep Learning',
             'description' => 'This track scales intuition from curves to networks. Watch neurons transform inputs into representations, then see how convolutional filters extract visual features. The focus is on how depth and nonlinearity change what a model can express.',
             'question' => 'Use it to answer: How does a CNN learn edges? Why does a neural model overfit while the loss keeps improving?',
+            'labs' => [
+                'NN Regression',
+                'CNN Binary',
+                'CNN MNIST',
+                'XOR Lab',
+                'Tiny Web LLM',
+            ],
+        ],
+        'reinforcement' => [
+            'title' => 'Reinforcement Learning',
+            'description' => 'Here the model is an agent that learns from rewards rather than labeled examples. You will explore exploration vs exploitation, sparse rewards, and the role of environment dynamics.',
+            'question' => 'Use it to answer: When is it better to explore? How does reward structure shape behavior?',
+            'labs' => [
+                'N-Slot Bandit',
+                'Grid World',
+            ],
+        ],
+    ],
+    'quickStart' => [
+        'title' => 'Quick Start Prompts',
+        'items' => [
+            [
+                'label' => 'New to ML?',
+                'text' => 'Begin with Linear Regression and Logistic Regression, then compare with Decision Trees.',
+            ],
+            [
+                'label' => 'Interested in curves?',
+                'text' => 'Use NN Regression to see how depth and width change the fit.',
+            ],
+            [
+                'label' => 'Want visual intuition?',
+                'text' => 'Jump into CNN MNIST and draw digits to test inference.',
+            ],
+        ],
+        'cta' => [
+            'start_linear' => 'Start with Linear Regression',
+            'explore_nn' => 'Explore NN Regression',
         ],
     ],
 ];

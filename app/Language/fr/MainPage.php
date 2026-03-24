@@ -55,11 +55,49 @@ return [
             'title' => 'Machine Learning',
             'description' => 'Commencez ici pour comprendre comment les modèles apprennent à partir des données. Vous verrez comment une courbe simple s\'adapte aux points, comment les classifieurs tracent les limites et pourquoi la capacité du modèle est importante. Cette piste consiste à développer l\'intuition pour les fonctions de perte, les gradients et la géométrie des données.',
             'question' => 'Utilisez-le pour répondre : Pourquoi un modèle est-il mal ajusté ou surajusté ? Comment la distribution des données reformule-t-elle une limite de décision ?',
+            'reinforcement' => [
+            'title' => 'Apprentissage par renforcement',
+            'description' => 'Ici, le mod?le est un agent qui apprend ? partir de r?compenses plut?t que d\'exemples ?tiquet?s. Vous explorerez l\'exploration vs l\'exploitation, les r?compenses clairsem?es et le r?le de la dynamique de l\'environnement.',
+            'question' => 'Utilisez-le pour r?pondre : quand vaut-il mieux explorer ? Comment la structure des r?compenses fa?onne-t-elle le comportement ?',
+            'labs' => [
+                'Bandit ? N bras',
+                'Monde en grille',
+            ],
         ],
+    ],
         'deeplearning' => [
             'title' => 'Deep Learning',
             'description' => 'Cette piste met à l\'échelle l\'intuition des courbes aux réseaux. Regardez comment les neurones transforment les entrées en représentations, puis voyez comment les filtres convolutifs extraient les caractéristiques visuelles. L\'accent est mis sur la façon dont la profondeur et la non-linéarité changent ce qu\'un modèle peut exprimer.',
             'question' => 'Utilisez-le pour répondre : Comment un CNN apprend-il les bords ? Pourquoi un modèle neuronal est-il surajusté alors que la perte continue de s\'améliorer ?',
+
+            'labs' => [
+                'R?gression NN',
+                'CNN Binary',
+                'CNN MNIST',
+                'Lab XOR',
+                'Tiny Web LLM',
+            ],
+        ],
+    ],
+    'quickStart' => [
+        'title' => 'D?marrage rapide',
+        'items' => [
+            [
+                'label' => 'Nouveau en ML ?',
+                'text' => 'Commencez par la r?gression lin?aire et la r?gression logistique, puis comparez avec les arbres de d?cision.',
+            ],
+            [
+                'label' => 'Int?ress? par les courbes ?',
+                'text' => 'Utilisez la r?gression NN pour voir comment la profondeur et la largeur modifient l\'ajustement.',
+            ],
+            [
+                'label' => 'Besoin d\'intuition visuelle ?',
+                'text' => 'Passez ? CNN MNIST et dessinez des chiffres pour tester l\'inf?rence.',
+            ],
+        ],
+        'cta' => [
+            'start_linear' => 'Commencer par la r?gression lin?aire',
+            'explore_nn' => 'Explorer la r?gression NN',
         ],
     ],
 ];
