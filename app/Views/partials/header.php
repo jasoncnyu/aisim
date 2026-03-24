@@ -12,14 +12,14 @@
         </div>
         
         <!-- Language Selector -->
-        <div class="relative group">
-            <button class="px-3 py-2 rounded-md hover:bg-slate-100 flex items-center gap-2 text-sm font-medium">
+        <div class="relative" x-data="{ langOpen: false }" @keydown.escape.window="langOpen = false">
+            <button class="px-3 py-2 rounded-md hover:bg-slate-100 flex items-center gap-2 text-sm font-medium" @click="langOpen = !langOpen" aria-haspopup="true" :aria-expanded="langOpen.toString()">
                 <i class="fa-solid fa-language fa-lg"></i>
                 <span class="hidden sm:inline"><?= strtoupper(currentLang()) ?></span>
             </button>
             
             <!-- Dropdown Menu -->
-            <div class="absolute right-0 mt-2 w-48 bg-white border border-slate-200 rounded-lg shadow-lg invisible group-hover:visible z-50">
+            <div class="absolute right-0 mt-2 w-48 bg-white border border-slate-200 rounded-lg shadow-lg z-50" x-show="langOpen" x-transition.origin.top.right x-cloak @click.outside="langOpen = false">
                 <?php foreach (getSupportedLanguages() as $code => $name): ?>
                     <a href="<?= esc(langUrl($code)) ?>" class="block px-4 py-2 text-sm hover:bg-slate-100 <?= currentLang() === $code ? 'bg-slate-50 font-semibold' : '' ?> <?= $code === 'ar' ? 'text-right' : '' ?>">
                         <?= getLanguageName($code, true) ?>

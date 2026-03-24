@@ -51,8 +51,11 @@
     <style {csp-style-nonce}>
         [x-cloak] { display: none !important; }
         .gsc-control-cse { padding: 0 !important; border: none !important; background: transparent !important; }
-        .gsc-control-cse .gsc-input-box { border: 1px solid #e2e8f0 !important; border-radius: 0.5rem !important; background: #fff !important; height: 2.25rem !important; }
-        .gsc-control-cse input.gsc-input { padding: 0 0.5rem !important; font-size: 0.875rem !important; color: #0f172a !important; background: transparent !important; }
+        .gsc-control-cse .gsc-input-box { border: 1px solid #e2e8f0 !important; border-radius: 0.5rem !important; background: #fff !important; height: 2.25rem !important; display: flex !important; align-items: center !important; }
+        .gsc-control-cse .gsc-input-box table { margin: 0 !important; height: 100% !important; }
+        .gsc-control-cse .gsc-input-box td { vertical-align: middle !important; }
+        .gsc-control-cse .gsib_a { padding: 0 !important; }
+        .gsc-control-cse input.gsc-input { padding: 0 0.5rem !important; font-size: 0.875rem !important; color: #0f172a !important; background: transparent !important; background-image: none !important; height: 2.25rem !important; line-height: 2.25rem !important; }
         .gsc-control-cse .gsc-search-button-v2 { padding: 0.25rem 0.5rem !important; border-radius: 0.5rem !important; border: none !important; background: #0f172a !important; }
         .gsc-control-cse .gsc-search-button-v2 svg { fill: #fff !important; }
         .gsc-control-cse .gsc-search-button-v2:hover { background: #1e293b !important; }
